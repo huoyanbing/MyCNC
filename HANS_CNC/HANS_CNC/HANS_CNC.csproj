@@ -1,0 +1,552 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1DB7E854-2292-4D16-B3E2-4C99CAD77675}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>HANS_CNC</RootNamespace>
+    <AssemblyName>HANS_CNC</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Awesomium.Core, Version=1.6.6.0, Culture=neutral, PublicKeyToken=e1a0d7c8071a5214" />
+    <Reference Include="Awesomium.Windows.Forms, Version=1.6.6.0, Culture=neutral, PublicKeyToken=9bd24830fbe304a0, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AxisCheckForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AxisCheckForm.Designer.cs">
+      <DependentUpon>AxisCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AxisVersionForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AxisVersionForm.Designer.cs">
+      <DependentUpon>AxisVersionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CircleProgramBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CircleProgramBar.Designer.cs">
+      <DependentUpon>CircleProgramBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CNCFileForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CNCFileForm.Designer.cs">
+      <DependentUpon>CNCFileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrawBoard.Designer.cs">
+      <DependentUpon>DrawBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileManageForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FileManageForm.Designer.cs">
+      <DependentUpon>FileManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputIOForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InputIOForm.Designer.cs">
+      <DependentUpon>InputIOForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JogKeysForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JogKeysForm.Designer.cs">
+      <DependentUpon>JogKeysForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutputIOForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutputIOForm.Designer.cs">
+      <DependentUpon>OutputIOForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PositionsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PositionsForm.Designer.cs">
+      <DependentUpon>PositionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SafetyZoneForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SafetyZoneForm.Designer.cs">
+      <DependentUpon>SafetyZoneForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIClass\FormDefinition.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PCBSetupForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PCBSetupForm.Designer.cs">
+      <DependentUpon>PCBSetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UCProcessEllipse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCProcessEllipse.Designer.cs">
+      <DependentUpon>UCProcessEllipse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIClass\AutoSizeFormClass.cs" />
+    <Compile Include="UIClass\StringTool.cs" />
+    <Compile Include="UserFlagForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserFlagForm.Designer.cs">
+      <DependentUpon>UserFlagForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkStatusForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkStatusForm.Designer.cs">
+      <DependentUpon>WorkStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZPlanesForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZPlanesForm.Designer.cs">
+      <DependentUpon>ZPlanesForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AxisCheckForm.resx">
+      <DependentUpon>AxisCheckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AxisVersionForm.resx">
+      <DependentUpon>AxisVersionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CNCFileForm.resx">
+      <DependentUpon>CNCFileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrawBoard.resx">
+      <DependentUpon>DrawBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileManageForm.resx">
+      <DependentUpon>FileManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputIOForm.resx">
+      <DependentUpon>InputIOForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JogKeysForm.resx">
+      <DependentUpon>JogKeysForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutputIOForm.resx">
+      <DependentUpon>OutputIOForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PCBSetupForm.resx">
+      <DependentUpon>PCBSetupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PositionsForm.resx">
+      <DependentUpon>PositionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SafetyZoneForm.resx">
+      <DependentUpon>SafetyZoneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCProcessEllipse.resx">
+      <DependentUpon>UCProcessEllipse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFlagForm.resx">
+      <DependentUpon>UserFlagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkStatusForm.resx">
+      <DependentUpon>WorkStatusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZPlanesForm.resx">
+      <DependentUpon>ZPlanesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\PIN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\LengthMeasure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\depthcontrol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\simulate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\ToolParameters.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\ToolFunctions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\ToolTolerances.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\ToolDiameterAdjustment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\ToolsBroken.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\WorkSheet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\CustomFunctions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\License.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\dashboardFV1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\dashboardFV2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\dashboardFV3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\dashboardFV4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\dashboardFV5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\dashboardFV6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\dashboardFV7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\dashboardFV8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\DrillingHKKiZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\DrillingHQKKiZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\DrillingHQKKiZ-NOQUIK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\DrillingHQZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\DrillingHQZ-NOQUIK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\DrillingHZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\DrillingRKKiZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\DrillingRQKKiZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\DrillingRQKKiZ-NOQUIK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\DrillingRQZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\DrillingRQZ-NOQUIK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\DrillingRZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\DrillTool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\cssFiles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\cssCommands.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\cssDiagnostics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\cssHelp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\cssProgram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\cssSystem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\cssTools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\cssWork.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\graphicZPlanes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\graphicPCBSetup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Spindle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SpindleError.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SpindleOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SpindleWorking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Z1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Z2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Z3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Z4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Z5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Z6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\ZeroXYVersion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\XYVersion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\XYVersion2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\XYVersion3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\XYVersion4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\XYVersion5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\XYVersion6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\XYVersion7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\XYVersion8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SetupUser_XY-FV1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SetupUser_XY-FV2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SetupUser_XY-FV3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SetupUser_XY-FV4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SetupUser_XY-FV5.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SetupUser_XY-FV6.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SetupUser_XY-FV7.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SetupUser_XY-FV8.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SetupUser_XYSafe-FV1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SetupUser_XYSafe-FV2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SetupUser_XYSafe-FV3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SetupUser_XYSafe-FV4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SetupUser_XYSafe-FV5.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SetupUser_XYSafe-FV6.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SetupUser_XYSafe-FV7.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SetupUser_XYSafe-FV8.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Inv_SIGN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\STOP_SIGN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SafetyZoneCHIT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SafetyZoneMode0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SafetyZoneMode1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SafetyZoneMode2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SafetyZoneMode3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SafetyZoneMode4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SafetyZoneMode5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SafetyZoneMode6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\SafetyZoneNOCHIT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\cssInputMonitor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\cssOutputMonitor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\regulator.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\ax_XYLin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\break.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\loop.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

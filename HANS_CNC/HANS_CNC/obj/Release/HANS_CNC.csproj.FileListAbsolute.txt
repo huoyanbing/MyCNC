@@ -1,0 +1,10 @@
+E:\VS2017Project\HANS_CNC\HANS_CNC\bin\Release\HANS_CNC.exe.config
+E:\VS2017Project\HANS_CNC\HANS_CNC\bin\Release\HANS_CNC.exe
+E:\VS2017Project\HANS_CNC\HANS_CNC\bin\Release\HANS_CNC.pdb
+E:\VS2017Project\HANS_CNC\HANS_CNC\obj\Release\HANS_CNC.csprojAssemblyReference.cache
+E:\VS2017Project\HANS_CNC\HANS_CNC\obj\Release\HANS_CNC.MainForm.resources
+E:\VS2017Project\HANS_CNC\HANS_CNC\obj\Release\HANS_CNC.Properties.Resources.resources
+E:\VS2017Project\HANS_CNC\HANS_CNC\obj\Release\HANS_CNC.csproj.GenerateResource.cache
+E:\VS2017Project\HANS_CNC\HANS_CNC\obj\Release\HANS_CNC.csproj.CoreCompileInputs.cache
+E:\VS2017Project\HANS_CNC\HANS_CNC\obj\Release\HANS_CNC.exe
+E:\VS2017Project\HANS_CNC\HANS_CNC\obj\Release\HANS_CNC.pdb
