@@ -37,6 +37,7 @@ namespace HANS_CNC
             MyStatusPanel();
             CNCShowForm(FormName.Form_WorkStatus);
             tLPJogKye.Visible = false;
+            ControlBufferAll();
         }
 
         private void MainForm_SizeChanged(object sender, EventArgs e)
@@ -73,6 +74,34 @@ namespace HANS_CNC
         {
             TabOffset();
         }
+
+        private void ControlBufferAll()
+        {
+            foreach(Control c in userControls)
+            {
+                ControlBuffer(c);
+            }
+            foreach(Control c in StatusErrorpanel.Controls)
+            {
+                ControlBuffer(c);
+            }
+        }
+
+        private void ControlBuffer( Control c)
+        {
+            if (c.Controls.Count > 0)
+            {
+                foreach (Control d in c.Controls)
+                {
+                    if (d is PictureBox || d is GroupBox||d is DataGridView)
+                    {
+                        Renderer.SetDoubleBuffer(d);
+                    }
+                    ControlBuffer(d);
+                }             
+            }                       
+        }
+
         private void TabOffset()
         {
             List<int> lbt = new List<int>();
