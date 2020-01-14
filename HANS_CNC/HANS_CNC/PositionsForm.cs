@@ -18,7 +18,7 @@ namespace HANS_CNC
         bool blone;
         public PositionsForm()
         {
-            InitializeComponent();
+            InitializeComponent();     
         }
         private void PositionsForm_Load(object sender, EventArgs e)
         {
@@ -29,8 +29,8 @@ namespace HANS_CNC
             ZSet = new string[4] { "测量绝对刀长Z的修正值[mm]", "Q平面的偏移[mm]", "测量相对刀长Z的修正值[mm]", "插入深度校正值[mm]" };
             XYpos = new string[4] { "绝对坐标[mm]","桌面坐标[mm]","PCB[mm]","伺服轴移动补偿[mm]"};
             blone = true;
-           tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
-           tabControl1.SizeMode = TabSizeMode.Fixed;
+           tabControlPos.DrawMode = TabDrawMode.OwnerDrawFixed;
+           tabControlPos.SizeMode = TabSizeMode.Fixed;
         }
 
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
@@ -38,7 +38,7 @@ namespace HANS_CNC
             try
             {
                 SolidBrush backgroundBlack;
-                if (e.Index == tabControl1.SelectedIndex) //当前Tab页的样式
+                if (e.Index == tabControlPos.SelectedIndex) //当前Tab页的样式
                 {
                     backgroundBlack = new SolidBrush(Color.DodgerBlue);//Tab整体背景颜色
                 }
@@ -46,15 +46,15 @@ namespace HANS_CNC
                 {
                     backgroundBlack = new SolidBrush(Color.FromArgb(64, 128, 128));//Tab整体背景颜色
                 }
-                Rectangle myTabRect = tabControl1.GetTabRect(e.Index);
+                Rectangle myTabRect = tabControlPos.GetTabRect(e.Index);
                 e.Graphics.FillRectangle(backgroundBlack, myTabRect);
                 StringFormat sftTab = new StringFormat();
                 sftTab.LineAlignment = StringAlignment.Center;
                 sftTab.Alignment = StringAlignment.Center;
-                RectangleF recTab = (RectangleF)tabControl1.GetTabRect(e.Index);//绘制区域
+                RectangleF recTab = (RectangleF)tabControlPos.GetTabRect(e.Index);//绘制区域
                  Font font = new System.Drawing.Font("微软雅黑", 11F);
                 SolidBrush bruFont = new SolidBrush(Color.White);// 标签字体颜色
-                e.Graphics.DrawString(tabControl1.TabPages[e.Index].Text, font, bruFont, recTab, sftTab);    
+                e.Graphics.DrawString(tabControlPos.TabPages[e.Index].Text, font, bruFont, recTab, sftTab);    
                 e.Graphics.Dispose();
             }
             catch (Exception ex)

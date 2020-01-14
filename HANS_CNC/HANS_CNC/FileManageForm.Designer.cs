@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.drawBoardFile = new HANS_CNC.DrawBoard();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,22 +39,9 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.drawBoardFile);
             this.splitContainer1.Size = new System.Drawing.Size(883, 548);
             this.splitContainer1.SplitterDistance = 242;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // drawBoardFile
-            // 
-            this.drawBoardFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.drawBoardFile.Location = new System.Drawing.Point(0, 0);
-            this.drawBoardFile.Name = "drawBoardFile";
-            this.drawBoardFile.Size = new System.Drawing.Size(635, 546);
-            this.drawBoardFile.TabIndex = 0;
-            this.drawBoardFile.Paint += new System.Windows.Forms.PaintEventHandler(this.drawBoardFile_Paint);
             // 
             // FileManageForm
             // 
@@ -70,7 +55,6 @@
             this.Size = new System.Drawing.Size(883, 548);
             this.Load += new System.EventHandler(this.FileManageForm_Load);
             this.SizeChanged += new System.EventHandler(this.FileManageForm_SizeChanged);
-            this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -80,6 +64,5 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private DrawBoard drawBoardFile;
     }
 }

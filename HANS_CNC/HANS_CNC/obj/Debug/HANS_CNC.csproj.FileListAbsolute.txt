@@ -64,4 +64,3 @@ F:\CNC_Test\HANS_CNC\HANS_CNC\obj\Debug\HANS_CNC.csproj.CoreCompileInputs.cache
 F:\CNC_Test\HANS_CNC\HANS_CNC\obj\Debug\HANS_CNC.csproj.CopyComplete
 F:\CNC_Test\HANS_CNC\HANS_CNC\obj\Debug\HANS_CNC.exe
 F:\CNC_Test\HANS_CNC\HANS_CNC\obj\Debug\HANS_CNC.pdb
-F:\CNC_Test\HANS_CNC\HANS_CNC\obj\Debug\HANS_CNC.DrawBoard.resources

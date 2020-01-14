@@ -29,9 +29,5 @@ namespace HANS_CNC
             asc.controlAutoSize(this, 1);
         }
 
-        private void drawBoardFile_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

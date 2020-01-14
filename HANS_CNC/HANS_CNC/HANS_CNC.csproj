@@ -88,12 +88,6 @@
     <Compile Include="CNCFileForm.Designer.cs">
       <DependentUpon>CNCFileForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DrawBoard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="DrawBoard.Designer.cs">
-      <DependentUpon>DrawBoard.cs</DependentUpon>
-    </Compile>
     <Compile Include="FileManageForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -157,6 +151,7 @@
       <DependentUpon>UCProcessEllipse.cs</DependentUpon>
     </Compile>
     <Compile Include="UIClass\AutoSizeFormClass.cs" />
+    <Compile Include="UIClass\Renderer.cs" />
     <Compile Include="UIClass\StringTool.cs" />
     <Compile Include="UserFlagForm.cs">
       <SubType>UserControl</SubType>
@@ -184,9 +179,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CNCFileForm.resx">
       <DependentUpon>CNCFileForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DrawBoard.resx">
-      <DependentUpon>DrawBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FileManageForm.resx">
       <DependentUpon>FileManageForm.cs</DependentUpon>
