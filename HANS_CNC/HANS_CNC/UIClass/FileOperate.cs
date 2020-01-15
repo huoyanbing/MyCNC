@@ -290,7 +290,7 @@ namespace HANS_CNC
         }
         #endregion
 
-        #region 获取指定路径下所有文件及其图标
+        #region 获取指定路径下所有文件 [文件可选]
         /// <summary>
         /// 获取指定路径下所有文件及其图标
         /// </summary>
@@ -598,96 +598,6 @@ namespace HANS_CNC
             {
             }
             blListViewRun = false;
-        }
-        #endregion
-
-        #region 获取指定路径下特定文件图标
-        public void GetListViewItemFileWT(string path, ImageList imglist, ListView lv)
-        {
-            lv.Items.Clear();
-            SHFILEINFO shfi = new SHFILEINFO();
-            try
-            {
-                string[] files = Directory.GetFiles(path);              
-                for (int i = 0; i < files.Length; i++)
-                {
-                    string[] info = new string[5];
-                    FileInfo fi = new FileInfo(files[i]);
-                    string Filetype = fi.Name.Substring(fi.Name.LastIndexOf(".") + 1, fi.Name.Length - fi.Name.LastIndexOf(".") - 1);
-                    string newtype = Filetype.ToLower();
-                    if (/*newtype == "emm" || newtype == "356" || newtype == "ipc"*/newtype == "erp")
-                    {
-                        //获得图标
-                        SHGetFileInfo(files[i],
-                                            (uint)0x80,
-                                            ref shfi,
-                                            (uint)System.Runtime.InteropServices.Marshal.SizeOf(shfi),
-                                            (uint)(0x100 | 0x400)); //取得Icon和TypeName
-                        //添加图标
-                        imglist.Images.Add(fi.Name, (Icon)Icon.FromHandle(shfi.hIcon).Clone());
-                        info[0] = fi.Name;
-                        double dbLength = Math.Ceiling((double)fi.Length / 1024);
-                        if (dbLength < 1024)
-                            info[1] = dbLength.ToString("F0") + " KB";
-                        else
-                            info[1] = Convert.ToDouble(dbLength / 1024).ToString("F0") + " MB";
-                        info[3] = fi.Extension.ToString();
-                        info[2] = fi.LastWriteTime.ToString();
-                        info[4] = fi.IsReadOnly.ToString();
-                        ListViewItem item = new ListViewItem(info, fi.Name);
-                        lv.Items.Add(item);
-                        //销毁图标
-                        DestroyIcon(shfi.hIcon);
-                    }
-                }
-            }
-            catch
-            {
-            }
-        }
-        #endregion
-
-        #region 获取指定文件的特定文件图标
-        public void GetListViewOneFile(string filepath, ImageList imglist, ListView lv)
-        {
-            //lv.Items.Clear();
-            SHFILEINFO shfi = new SHFILEINFO();
-            try
-            {
-                
-                    string[] info = new string[5];
-                    FileInfo fi = new FileInfo(filepath);
-                    string Filetype = fi.Name.Substring(fi.Name.LastIndexOf(".") + 1, fi.Name.Length - fi.Name.LastIndexOf(".") - 1);
-                    string newtype = Filetype.ToLower();
-                    if (/*newtype == "emm" || newtype == "356" || newtype == "ipc"*/newtype == "erp")
-                    {
-                        //获得图标
-                        SHGetFileInfo(filepath,
-                                            (uint)0x80,
-                                            ref shfi,
-                                            (uint)System.Runtime.InteropServices.Marshal.SizeOf(shfi),
-                                            (uint)(0x100 | 0x400)); //取得Icon和TypeName
-                        //添加图标
-                        imglist.Images.Add(fi.Name, (Icon)Icon.FromHandle(shfi.hIcon).Clone());
-                        info[0] = fi.Name;
-                        double dbLength = Math.Ceiling((double)fi.Length / 1024);
-                        if (dbLength < 1024)
-                            info[1] = dbLength.ToString("F0") + " KB";
-                        else
-                            info[1] = Convert.ToDouble(dbLength / 1024).ToString("F0") + " MB";
-                       // info[3] = fi.Extension.ToString();
-                       // info[2] = fi.LastWriteTime.ToString();
-                       // info[4] = fi.IsReadOnly.ToString();
-                        ListViewItem item = new ListViewItem(info, fi.Name);
-                        lv.Items.Add(item);
-                        //销毁图标
-                        DestroyIcon(shfi.hIcon);
-                    }
-                
-            }
-            catch
-            {
-            }
         }
         #endregion
 
