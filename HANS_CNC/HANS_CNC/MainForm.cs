@@ -38,6 +38,7 @@ namespace HANS_CNC
             CNCShowForm(FormName.Form_WorkStatus);
             tLPJogKye.Visible = false;
             ControlBufferAll();
+            ConfigData configData = new ConfigData();
             FolderForm.pathsChanged += FolderForm_pathsChanged;
         }
 

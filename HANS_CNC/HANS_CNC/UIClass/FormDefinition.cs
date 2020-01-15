@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HANS_CNC
 {
@@ -27,6 +29,15 @@ namespace HANS_CNC
     {
         public int nFV { get; set; }
         public string Ex2Path { get; set; }
+    }
+
+    public class ConfigData
+    {
+        public static NameValueCollection myCol = new NameValueCollection();
+        public ConfigData()
+        {
+            myCol.Add("TodoXMLFilePath", Application.StartupPath);
+        }
     }
 
 }
