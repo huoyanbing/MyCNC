@@ -140,5 +140,18 @@ namespace HANS_CNC
             SendPathData(fileFullPath);
             this.Close();
         }
+
+        private void tVfolder_MouseDown(object sender, MouseEventArgs e)
+        {
+            if ((sender as TreeView) != null)
+            {
+                tVfolder.SelectedNode = tVfolder.GetNodeAt(e.X, e.Y);
+                tBoxfolder.Text = tVfolder.SelectedNode.FullPath;
+                folderFullPath = FileOperate.inipath + "\\" + tVfolder.SelectedNode.FullPath;
+                string str0 = comboBoxFliter.SelectedItem.ToString();
+                string str = StringTool.ExtractFliter(str0);
+                baseFileOperate.GetListViewItemOpt(folderFullPath, imageList2, listView1, str);
+            }
+        }
     }
 }

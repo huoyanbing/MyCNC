@@ -127,6 +127,7 @@
             this.tVfolder.Size = new System.Drawing.Size(224, 362);
             this.tVfolder.TabIndex = 8;
             this.tVfolder.DoubleClick += new System.EventHandler(this.tVfolder_DoubleClick);
+            this.tVfolder.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tVfolder_MouseDown);
             // 
             // listView1
             // 
