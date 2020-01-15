@@ -35,7 +35,7 @@ namespace HANS_CNC
             asc.controllInitializeSize(this);                       
         }
 
-        private void AxisVersionForm_FVChanged(object sender, FVEventArgs e)
+        private void AxisVersionForm_FVChanged(object sender, UserEventArgs e)
         {
             pictureBoxSZ.BackgroundImage = imgSZ[e.nFV];
         }

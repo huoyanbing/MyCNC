@@ -32,7 +32,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnFileOpen = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -78,7 +78,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Gray;
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnFileOpen);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -98,15 +98,16 @@
             this.button2.TabIndex = 3;
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnFileOpen
             // 
-            this.button1.BackColor = System.Drawing.Color.Gray;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(751, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 50);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = false;  
+            this.btnFileOpen.BackColor = System.Drawing.Color.Gray;
+            this.btnFileOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnFileOpen.Image")));
+            this.btnFileOpen.Location = new System.Drawing.Point(751, 4);
+            this.btnFileOpen.Name = "btnFileOpen";
+            this.btnFileOpen.Size = new System.Drawing.Size(50, 50);
+            this.btnFileOpen.TabIndex = 3;
+            this.btnFileOpen.UseVisualStyleBackColor = false;
+            this.btnFileOpen.Click += new System.EventHandler(this.btnFileOpen_Click);
             // 
             // textBox1
             // 
@@ -302,7 +303,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnFileOpen;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;

@@ -48,6 +48,19 @@ namespace HANS_CNC.UIClass
             }
         }
 
+        public static string ExtractFliter(string sourceString)
+        {
+            string result = Regex.Replace(sourceString, "[()*]+", String.Empty);
+            try
+            {
+                return result;
+            }
+            catch (FormatException)
+            {
+                throw;
+            }
+        }
+
         public static bool IsLettersOrNum(string _value)
         {
             return QuickValidate(@"^[A-Z0-9\s\b]*$", _value);

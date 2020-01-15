@@ -14,7 +14,7 @@ namespace HANS_CNC
     public partial class MainForm : Form
     {
          AutoSizeFormClass asc = new AutoSizeFormClass();
-       // public static MainForm _mainForm = null;
+        public static MainForm _mainForm = null;
         Bitmap[] tabImages ;
         List<UserControl> userControls;
         List<Image> imgFV;
@@ -22,7 +22,7 @@ namespace HANS_CNC
         public MainForm()
         {
             InitializeComponent();
-            //_mainForm = this;
+            _mainForm = this;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -38,6 +38,12 @@ namespace HANS_CNC
             CNCShowForm(FormName.Form_WorkStatus);
             tLPJogKye.Visible = false;
             ControlBufferAll();
+            FolderForm.pathsChanged += FolderForm_pathsChanged;
+        }
+
+        private void FolderForm_pathsChanged(object sender, UserEventArgs e)
+        {
+            this.MaintabControl.SelectedIndex = 1;
         }
 
         private void MainForm_SizeChanged(object sender, EventArgs e)
@@ -86,7 +92,6 @@ namespace HANS_CNC
                 ControlBuffer(c);
             }
         }
-
         private void ControlBuffer( Control c)
         {
             if (c.Controls.Count > 0)
@@ -282,7 +287,7 @@ namespace HANS_CNC
         {           
             CNCShowForm(FormName.Form_WorkStatus);
         }
-        private void CNCShowForm(FormName formname)
+        public void CNCShowForm(FormName formname)
         {
             int num = (int)formname;
             if (userControls!=null && userControls.Count>0)
@@ -305,7 +310,7 @@ namespace HANS_CNC
             CNCShowForm(FormName.Form_AxisVersion);
             AxisVersionForm.FVChanged += AxisVersionForm_FVChanged;
         }
-        private void AxisVersionForm_FVChanged(object sender, FVEventArgs e)
+        private void AxisVersionForm_FVChanged(object sender, UserEventArgs e)
         {
             pictureBoxFV.BackgroundImage = imgFV[e.nFV];
             groupBoxFV.Text = strFV[e.nFV];

@@ -15,7 +15,7 @@ namespace HANS_CNC
     {
         AutoSizeFormClass asc = new AutoSizeFormClass();
         List<Image> imgFV;
-        public static event EventHandler<FVEventArgs> FVChanged;
+        public static event EventHandler<UserEventArgs> FVChanged;
         public AxisVersionForm()
         {
             InitializeComponent();                        
@@ -50,11 +50,13 @@ namespace HANS_CNC
         }     
         private void SendFVData(int n)
         {
-            OnFVChanged(new FVEventArgs(n));
+            UserEventArgs userEventArgs = new UserEventArgs();
+            userEventArgs.nFV = n;
+            OnFVChanged(userEventArgs);
         }
-        protected virtual void OnFVChanged(FVEventArgs e)
+        protected virtual void OnFVChanged(UserEventArgs e)
         {
-            EventHandler<FVEventArgs> handler = FVChanged;
+            EventHandler<UserEventArgs> handler = FVChanged;
             if(handler!=null)
             {
                 handler(this, e);

@@ -28,5 +28,11 @@ namespace HANS_CNC
         {
             asc.controlAutoSize(this,1);
         }
+
+        private void btnFileOpen_Click(object sender, EventArgs e)
+        {
+            FolderForm folderForm = new FolderForm();
+            folderForm.ShowDialog();
+        }
     }
 }

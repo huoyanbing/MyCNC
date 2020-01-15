@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HANS_CNC
 {
-    enum FormName
+    public enum FormName
     {
         Form_File,
         Form_ZPlanes,
@@ -23,13 +23,10 @@ namespace HANS_CNC
         Form_UserFlag,
     }
 
-    public class FVEventArgs : EventArgs
+    public class UserEventArgs : EventArgs
     {
         public int nFV { get; set; }
-        public FVEventArgs(int n)
-        {
-            nFV = n;
-        }
+        public string Ex2Path { get; set; }
     }
 
 }

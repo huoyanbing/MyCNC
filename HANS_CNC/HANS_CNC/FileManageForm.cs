@@ -14,9 +14,17 @@ namespace HANS_CNC
     public partial class FileManageForm : UserControl
     {
         AutoSizeFormClass asc = new AutoSizeFormClass();
+        string Ex2path;
         public FileManageForm()
         {
             InitializeComponent();
+            FolderForm.pathsChanged += FolderForm_pathsChanged;
+        }
+
+        private void FolderForm_pathsChanged(object sender, UserEventArgs e)
+        {
+            Ex2path = e.Ex2Path;
+            MainForm._mainForm.CNCShowForm(FormName.Form_FileManage);
         }
 
         private void FileManageForm_Load(object sender, EventArgs e)
