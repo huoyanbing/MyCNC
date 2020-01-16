@@ -45,7 +45,6 @@ namespace HANS_CNC
             Button bt = (Button)sender;
             int a = StringTool.ExtractNum(bt.Name);
             pictureBoxFV.BackgroundImage = imgFV[a - 1];
-          //  ReadFVRun(a - 1);
             SendFVData(a - 1);
         }     
         private void SendFVData(int n)

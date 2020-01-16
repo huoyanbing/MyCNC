@@ -68,32 +68,13 @@ namespace HANS_CNC
             asc.controlAutoSize(this,1);
             if(blone)
             {
-                DataGridViewInitial(dataGridViewZ, Zpos);
-                DataGridViewInitial(dataGridViewZSet, ZSet);
-                DataGridViewInitial(dataGridViewX, XYpos);
-                DataGridViewInitial(dataGridViewY, XYpos);
+                ControlTool.DataGridViewInitial(dataGridViewZ, Zpos);
+                ControlTool.DataGridViewInitial(dataGridViewZSet, ZSet);
+                ControlTool.DataGridViewInitial(dataGridViewX, XYpos);
+                ControlTool.DataGridViewInitial(dataGridViewY, XYpos);
                 blone = false;
             }           
         }
 
-
-        void DataGridViewInitial(DataGridView dataGridView,string[]  strRow)
-        {
-            int width = (dataGridView.Width- dataGridView.RowHeadersWidth) / dataGridView.ColumnCount;
-            for (int i=0; i< dataGridView.ColumnCount;i++)
-            {
-                dataGridView.Columns[i].Width = width;
-            }
-            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridView.ColumnHeadersHeight = 40;
-            dataGridView.RowTemplate.Height = (dataGridView.Height - dataGridView.ColumnHeadersHeight) / strRow.Length;
-            dataGridView.AllowUserToAddRows = false;
-            for (int i=0;i< strRow.Length;i++)
-            {
-                 dataGridView.Rows.Add();
-                dataGridView.Rows[i].HeaderCell.Value = strRow[i];
-            }
-          
-        }
     }
 }

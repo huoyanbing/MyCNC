@@ -50,6 +50,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -110,7 +111,10 @@
     <Compile Include="JogKeysForm.Designer.cs">
       <DependentUpon>JogKeysForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LayerClass\ConfigurationClass.cs" />
+    <Compile Include="LayerClass\ITodoListController.cs" />
     <Compile Include="LayerClass\ITodoListModel.cs" />
+    <Compile Include="LayerClass\TodoController.cs" />
     <Compile Include="LayerClass\TodoListModel.cs" />
     <Compile Include="OutputIOForm.cs">
       <SubType>UserControl</SubType>
@@ -135,6 +139,7 @@
     <Compile Include="SafetyZoneForm.Designer.cs">
       <DependentUpon>SafetyZoneForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIClass\ControlTool.cs" />
     <Compile Include="UIClass\DrawTool.cs" />
     <Compile Include="UIClass\FileOperate.cs" />
     <Compile Include="UIClass\FormDefinition.cs" />

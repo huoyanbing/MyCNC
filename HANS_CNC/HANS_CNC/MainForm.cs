@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HANS_CNC.LayerClass;
 using HANS_CNC.UIClass;
 
 namespace HANS_CNC
@@ -39,6 +40,7 @@ namespace HANS_CNC
             tLPJogKye.Visible = false;
             ControlBufferAll();
             ConfigData configData = new ConfigData();
+            ConfigurationClass.AddUpdateAppSettings("TodoXMLFilePath", Application.StartupPath);
             FolderForm.pathsChanged += FolderForm_pathsChanged;
         }
 
