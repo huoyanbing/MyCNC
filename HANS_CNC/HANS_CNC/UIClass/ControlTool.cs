@@ -33,6 +33,7 @@ namespace HANS_CNC.UIClass
         }
         public static void DataGridViewComoInitial(DataGridView dataGridView, string[] strRow)
         {
+            dataGridView.Columns[1].ReadOnly = true;
             dataGridView.BorderStyle = BorderStyle.None;
             dataGridView.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             dataGridView.ColumnHeadersVisible = false;
