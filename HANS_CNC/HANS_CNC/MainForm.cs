@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HANS_CNC.LayerClass;
@@ -20,10 +21,13 @@ namespace HANS_CNC
         List<UserControl> userControls;
         List<Image> imgFV;
         string[] strFV;
+
+        ITodoListController controller;
         public MainForm()
         {
             InitializeComponent();
             _mainForm = this;
+            controller = new TodoController();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -363,6 +367,26 @@ namespace HANS_CNC
         private void btnUserFlag_Click(object sender, EventArgs e)
         {
             CNCShowForm(FormName.Form_UserFlag);
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {    
+            if (btnStart.Tag.ToString() == "1")
+            {
+                btnStart.Enabled = false;
+                btnStart.Image = new Bitmap(Properties.Resources.cssStop);
+                controller.start();
+                btnStart.Tag = 2;
+                btnStart.Enabled = true;
+            }
+            else
+            {
+                btnStart.Enabled = false;
+                btnStart.Image = new Bitmap(Properties.Resources.cssStart);
+                controller.stop();
+                btnStart.Tag = 1;
+                btnStart.Enabled = true;
+            }                           
         }
     }
 }

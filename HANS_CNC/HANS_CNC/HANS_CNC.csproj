@@ -116,6 +116,7 @@
     <Compile Include="LayerClass\ITodoListModel.cs" />
     <Compile Include="LayerClass\TodoController.cs" />
     <Compile Include="LayerClass\TodoListModel.cs" />
+    <Compile Include="LayerClass\TodoView.cs" />
     <Compile Include="OutputIOForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -556,6 +557,11 @@
   <ItemGroup>
     <None Include="Resource\loop.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resource\cssStart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\cssStop.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

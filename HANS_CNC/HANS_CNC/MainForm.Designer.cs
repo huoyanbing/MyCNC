@@ -31,6 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelNavigator = new System.Windows.Forms.Panel();
             this.MaintabControl = new System.Windows.Forms.TabControl();
+            this.Workpanel = new System.Windows.Forms.Panel();
+            this.panelComm = new System.Windows.Forms.Panel();
+            this.label39 = new System.Windows.Forms.Label();
+            this.comboBoxInput = new System.Windows.Forms.ComboBox();
+            this.plError = new System.Windows.Forms.Panel();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.tLPJogKye = new System.Windows.Forms.TableLayoutPanel();
+            this.StatusErrorpanel = new System.Windows.Forms.Panel();
+            this.button54 = new System.Windows.Forms.Button();
+            this.button53 = new System.Windows.Forms.Button();
+            this.btnCommOK = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPageProgramme = new System.Windows.Forms.TabPage();
             this.button27 = new System.Windows.Forms.Button();
@@ -87,38 +98,10 @@
             this.button63 = new System.Windows.Forms.Button();
             this.button64 = new System.Windows.Forms.Button();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.Workpanel = new System.Windows.Forms.Panel();
-            this.panelComm = new System.Windows.Forms.Panel();
-            this.label39 = new System.Windows.Forms.Label();
-            this.button54 = new System.Windows.Forms.Button();
-            this.button53 = new System.Windows.Forms.Button();
-            this.btnCommOK = new System.Windows.Forms.Button();
-            this.comboBoxInput = new System.Windows.Forms.ComboBox();
-            this.plError = new System.Windows.Forms.Panel();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
             this.btnJogkey = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.tLPJogKye = new System.Windows.Forms.TableLayoutPanel();
-            this.btnJogLock = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.StatusErrorpanel = new System.Windows.Forms.Panel();
             this.plStatue = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -165,18 +148,35 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBoxFV = new System.Windows.Forms.PictureBox();
+            this.btnJogLock = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
             this.panelNavigator.SuspendLayout();
             this.MaintabControl.SuspendLayout();
-            this.tabPageProgramme.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.tabPage5.SuspendLayout();
-            this.tabPage6.SuspendLayout();
-            this.tabPage7.SuspendLayout();
             this.Workpanel.SuspendLayout();
             this.panelComm.SuspendLayout();
             this.plError.SuspendLayout();
             this.tLPJogKye.SuspendLayout();
             this.StatusErrorpanel.SuspendLayout();
+            this.tabPageProgramme.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.tabPage7.SuspendLayout();
             this.plStatue.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -219,6 +219,154 @@
             this.MaintabControl.TabIndex = 0;
             this.MaintabControl.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.MaintabControl_DrawItem);
             this.MaintabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.MaintabControl_Selected);
+            // 
+            // Workpanel
+            // 
+            this.Workpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Workpanel.Controls.Add(this.panelComm);
+            this.Workpanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Workpanel.Location = new System.Drawing.Point(195, 0);
+            this.Workpanel.Name = "Workpanel";
+            this.Workpanel.Size = new System.Drawing.Size(879, 539);
+            this.Workpanel.TabIndex = 2;
+            // 
+            // panelComm
+            // 
+            this.panelComm.BackColor = System.Drawing.Color.OldLace;
+            this.panelComm.Controls.Add(this.label39);
+            this.panelComm.Controls.Add(this.button54);
+            this.panelComm.Controls.Add(this.button53);
+            this.panelComm.Controls.Add(this.btnCommOK);
+            this.panelComm.Controls.Add(this.comboBoxInput);
+            this.panelComm.Location = new System.Drawing.Point(0, 472);
+            this.panelComm.Name = "panelComm";
+            this.panelComm.Size = new System.Drawing.Size(875, 65);
+            this.panelComm.TabIndex = 0;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.BackColor = System.Drawing.Color.Transparent;
+            this.label39.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label39.Location = new System.Drawing.Point(29, 1);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(43, 19);
+            this.label39.TabIndex = 2;
+            this.label39.Text = "Input";
+            // 
+            // comboBoxInput
+            // 
+            this.comboBoxInput.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBoxInput.FormattingEnabled = true;
+            this.comboBoxInput.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboBoxInput.Location = new System.Drawing.Point(26, 22);
+            this.comboBoxInput.MaxDropDownItems = 6;
+            this.comboBoxInput.Name = "comboBoxInput";
+            this.comboBoxInput.Size = new System.Drawing.Size(501, 29);
+            this.comboBoxInput.TabIndex = 0;
+            this.comboBoxInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxInput_KeyPress);
+            // 
+            // plError
+            // 
+            this.plError.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plError.Controls.Add(this.progressBar1);
+            this.plError.Controls.Add(this.btnStart);
+            this.plError.Controls.Add(this.btnJogkey);
+            this.plError.Controls.Add(this.button3);
+            this.plError.Controls.Add(this.button1);
+            this.plError.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plError.Location = new System.Drawing.Point(0, -4);
+            this.plError.Name = "plError";
+            this.plError.Size = new System.Drawing.Size(1070, 53);
+            this.plError.TabIndex = 3;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.progressBar1.Location = new System.Drawing.Point(0, 0);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(754, 49);
+            this.progressBar1.TabIndex = 0;
+            // 
+            // tLPJogKye
+            // 
+            this.tLPJogKye.BackColor = System.Drawing.Color.Silver;
+            this.tLPJogKye.ColumnCount = 4;
+            this.tLPJogKye.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tLPJogKye.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tLPJogKye.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tLPJogKye.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tLPJogKye.Controls.Add(this.btnJogLock, 0, 0);
+            this.tLPJogKye.Controls.Add(this.button6, 1, 0);
+            this.tLPJogKye.Controls.Add(this.button7, 2, 0);
+            this.tLPJogKye.Controls.Add(this.button8, 3, 0);
+            this.tLPJogKye.Controls.Add(this.button9, 0, 1);
+            this.tLPJogKye.Controls.Add(this.button10, 1, 1);
+            this.tLPJogKye.Controls.Add(this.button11, 2, 1);
+            this.tLPJogKye.Controls.Add(this.button12, 0, 2);
+            this.tLPJogKye.Controls.Add(this.button13, 1, 2);
+            this.tLPJogKye.Controls.Add(this.button14, 2, 2);
+            this.tLPJogKye.Controls.Add(this.button15, 0, 3);
+            this.tLPJogKye.Controls.Add(this.button16, 1, 3);
+            this.tLPJogKye.Controls.Add(this.button17, 2, 3);
+            this.tLPJogKye.Controls.Add(this.button18, 3, 1);
+            this.tLPJogKye.Controls.Add(this.button19, 3, 3);
+            this.tLPJogKye.Controls.Add(this.button20, 0, 4);
+            this.tLPJogKye.Controls.Add(this.button21, 2, 4);
+            this.tLPJogKye.Location = new System.Drawing.Point(835, 9);
+            this.tLPJogKye.Margin = new System.Windows.Forms.Padding(1);
+            this.tLPJogKye.Name = "tLPJogKye";
+            this.tLPJogKye.RowCount = 5;
+            this.tLPJogKye.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tLPJogKye.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tLPJogKye.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tLPJogKye.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tLPJogKye.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tLPJogKye.Size = new System.Drawing.Size(236, 190);
+            this.tLPJogKye.TabIndex = 0;
+            // 
+            // StatusErrorpanel
+            // 
+            this.StatusErrorpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.StatusErrorpanel.Controls.Add(this.plError);
+            this.StatusErrorpanel.Controls.Add(this.plStatue);
+            this.StatusErrorpanel.Controls.Add(this.tLPJogKye);
+            this.StatusErrorpanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.StatusErrorpanel.Location = new System.Drawing.Point(0, 539);
+            this.StatusErrorpanel.Name = "StatusErrorpanel";
+            this.StatusErrorpanel.Size = new System.Drawing.Size(1074, 191);
+            this.StatusErrorpanel.TabIndex = 4;
+            // 
+            // button54
+            // 
+            this.button54.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button54.BackgroundImage")));
+            this.button54.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button54.Location = new System.Drawing.Point(771, 11);
+            this.button54.Name = "button54";
+            this.button54.Size = new System.Drawing.Size(75, 40);
+            this.button54.TabIndex = 1;
+            this.button54.UseVisualStyleBackColor = true;
+            // 
+            // button53
+            // 
+            this.button53.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button53.BackgroundImage")));
+            this.button53.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button53.Location = new System.Drawing.Point(683, 11);
+            this.button53.Name = "button53";
+            this.button53.Size = new System.Drawing.Size(75, 40);
+            this.button53.TabIndex = 1;
+            this.button53.UseVisualStyleBackColor = true;
+            // 
+            // btnCommOK
+            // 
+            this.btnCommOK.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCommOK.BackgroundImage")));
+            this.btnCommOK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCommOK.Location = new System.Drawing.Point(595, 11);
+            this.btnCommOK.Name = "btnCommOK";
+            this.btnCommOK.Size = new System.Drawing.Size(75, 40);
+            this.btnCommOK.TabIndex = 1;
+            this.btnCommOK.UseVisualStyleBackColor = true;
+            this.btnCommOK.Click += new System.EventHandler(this.btnCommOK_Click);
             // 
             // tabPage1
             // 
@@ -1114,114 +1262,17 @@
             this.tabPage8.Text = "帮助";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // Workpanel
+            // btnStart
             // 
-            this.Workpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Workpanel.Controls.Add(this.panelComm);
-            this.Workpanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Workpanel.Location = new System.Drawing.Point(195, 0);
-            this.Workpanel.Name = "Workpanel";
-            this.Workpanel.Size = new System.Drawing.Size(879, 539);
-            this.Workpanel.TabIndex = 2;
-            // 
-            // panelComm
-            // 
-            this.panelComm.BackColor = System.Drawing.Color.OldLace;
-            this.panelComm.Controls.Add(this.label39);
-            this.panelComm.Controls.Add(this.button54);
-            this.panelComm.Controls.Add(this.button53);
-            this.panelComm.Controls.Add(this.btnCommOK);
-            this.panelComm.Controls.Add(this.comboBoxInput);
-            this.panelComm.Location = new System.Drawing.Point(0, 472);
-            this.panelComm.Name = "panelComm";
-            this.panelComm.Size = new System.Drawing.Size(875, 65);
-            this.panelComm.TabIndex = 0;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.BackColor = System.Drawing.Color.Transparent;
-            this.label39.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label39.Location = new System.Drawing.Point(29, 1);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(43, 19);
-            this.label39.TabIndex = 2;
-            this.label39.Text = "Input";
-            // 
-            // button54
-            // 
-            this.button54.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button54.BackgroundImage")));
-            this.button54.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button54.Location = new System.Drawing.Point(771, 11);
-            this.button54.Name = "button54";
-            this.button54.Size = new System.Drawing.Size(75, 40);
-            this.button54.TabIndex = 1;
-            this.button54.UseVisualStyleBackColor = true;
-            // 
-            // button53
-            // 
-            this.button53.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button53.BackgroundImage")));
-            this.button53.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button53.Location = new System.Drawing.Point(683, 11);
-            this.button53.Name = "button53";
-            this.button53.Size = new System.Drawing.Size(75, 40);
-            this.button53.TabIndex = 1;
-            this.button53.UseVisualStyleBackColor = true;
-            // 
-            // btnCommOK
-            // 
-            this.btnCommOK.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCommOK.BackgroundImage")));
-            this.btnCommOK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCommOK.Location = new System.Drawing.Point(595, 11);
-            this.btnCommOK.Name = "btnCommOK";
-            this.btnCommOK.Size = new System.Drawing.Size(75, 40);
-            this.btnCommOK.TabIndex = 1;
-            this.btnCommOK.UseVisualStyleBackColor = true;
-            this.btnCommOK.Click += new System.EventHandler(this.btnCommOK_Click);
-            // 
-            // comboBoxInput
-            // 
-            this.comboBoxInput.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.comboBoxInput.FormattingEnabled = true;
-            this.comboBoxInput.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBoxInput.Location = new System.Drawing.Point(26, 22);
-            this.comboBoxInput.MaxDropDownItems = 6;
-            this.comboBoxInput.Name = "comboBoxInput";
-            this.comboBoxInput.Size = new System.Drawing.Size(501, 29);
-            this.comboBoxInput.TabIndex = 0;
-            this.comboBoxInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxInput_KeyPress);
-            // 
-            // plError
-            // 
-            this.plError.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.plError.Controls.Add(this.progressBar1);
-            this.plError.Controls.Add(this.button4);
-            this.plError.Controls.Add(this.btnJogkey);
-            this.plError.Controls.Add(this.button3);
-            this.plError.Controls.Add(this.button1);
-            this.plError.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plError.Location = new System.Drawing.Point(0, -4);
-            this.plError.Name = "plError";
-            this.plError.Size = new System.Drawing.Size(1070, 53);
-            this.plError.TabIndex = 3;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.progressBar1.Location = new System.Drawing.Point(0, 0);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(754, 49);
-            this.progressBar1.TabIndex = 0;
-            // 
-            // button4
-            // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(754, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(78, 49);
-            this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnStart.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnStart.Image = global::HANS_CNC.Properties.Resources.cssStart;
+            this.btnStart.Location = new System.Drawing.Point(754, 0);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(78, 49);
+            this.btnStart.TabIndex = 4;
+            this.btnStart.Tag = "1";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnJogkey
             // 
@@ -1256,346 +1307,6 @@
             this.button1.Size = new System.Drawing.Size(78, 49);
             this.button1.TabIndex = 1;
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // tLPJogKye
-            // 
-            this.tLPJogKye.BackColor = System.Drawing.Color.Silver;
-            this.tLPJogKye.ColumnCount = 4;
-            this.tLPJogKye.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tLPJogKye.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tLPJogKye.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tLPJogKye.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tLPJogKye.Controls.Add(this.btnJogLock, 0, 0);
-            this.tLPJogKye.Controls.Add(this.button6, 1, 0);
-            this.tLPJogKye.Controls.Add(this.button7, 2, 0);
-            this.tLPJogKye.Controls.Add(this.button8, 3, 0);
-            this.tLPJogKye.Controls.Add(this.button9, 0, 1);
-            this.tLPJogKye.Controls.Add(this.button10, 1, 1);
-            this.tLPJogKye.Controls.Add(this.button11, 2, 1);
-            this.tLPJogKye.Controls.Add(this.button12, 0, 2);
-            this.tLPJogKye.Controls.Add(this.button13, 1, 2);
-            this.tLPJogKye.Controls.Add(this.button14, 2, 2);
-            this.tLPJogKye.Controls.Add(this.button15, 0, 3);
-            this.tLPJogKye.Controls.Add(this.button16, 1, 3);
-            this.tLPJogKye.Controls.Add(this.button17, 2, 3);
-            this.tLPJogKye.Controls.Add(this.button18, 3, 1);
-            this.tLPJogKye.Controls.Add(this.button19, 3, 3);
-            this.tLPJogKye.Controls.Add(this.button20, 0, 4);
-            this.tLPJogKye.Controls.Add(this.button21, 2, 4);
-            this.tLPJogKye.Location = new System.Drawing.Point(835, 9);
-            this.tLPJogKye.Margin = new System.Windows.Forms.Padding(1);
-            this.tLPJogKye.Name = "tLPJogKye";
-            this.tLPJogKye.RowCount = 5;
-            this.tLPJogKye.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tLPJogKye.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tLPJogKye.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tLPJogKye.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tLPJogKye.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tLPJogKye.Size = new System.Drawing.Size(236, 190);
-            this.tLPJogKye.TabIndex = 0;
-            // 
-            // btnJogLock
-            // 
-            this.btnJogLock.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnJogLock.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnJogLock.BackgroundImage")));
-            this.btnJogLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnJogLock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnJogLock.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnJogLock.ForeColor = System.Drawing.Color.White;
-            this.btnJogLock.Location = new System.Drawing.Point(1, 1);
-            this.btnJogLock.Margin = new System.Windows.Forms.Padding(1);
-            this.btnJogLock.Name = "btnJogLock";
-            this.btnJogLock.Size = new System.Drawing.Size(57, 36);
-            this.btnJogLock.TabIndex = 0;
-            this.btnJogLock.Text = "Lock";
-            this.btnJogLock.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnJogLock.UseVisualStyleBackColor = false;
-            this.btnJogLock.Click += new System.EventHandler(this.btnJogLock_Click);
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(60, 1);
-            this.button6.Margin = new System.Windows.Forms.Padding(1);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(57, 36);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "/";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button7.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(119, 1);
-            this.button7.Margin = new System.Windows.Forms.Padding(1);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(57, 36);
-            this.button7.TabIndex = 2;
-            this.button7.Text = "*";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(178, 1);
-            this.button8.Margin = new System.Windows.Forms.Padding(1);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(57, 36);
-            this.button8.TabIndex = 3;
-            this.button8.Text = "-";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button9.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(1, 39);
-            this.button9.Margin = new System.Windows.Forms.Padding(1);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(57, 36);
-            this.button9.TabIndex = 4;
-            this.button9.Text = "Home";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button9.UseVisualStyleBackColor = false;
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button10.BackgroundImage")));
-            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button10.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(60, 39);
-            this.button10.Margin = new System.Windows.Forms.Padding(1);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(57, 36);
-            this.button10.TabIndex = 5;
-            this.button10.Text = "Up";
-            this.button10.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button10.UseVisualStyleBackColor = false;
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button11.BackgroundImage")));
-            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button11.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(119, 39);
-            this.button11.Margin = new System.Windows.Forms.Padding(1);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(57, 36);
-            this.button11.TabIndex = 6;
-            this.button11.Text = "上一页";
-            this.button11.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button11.UseVisualStyleBackColor = false;
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button12.BackgroundImage")));
-            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button12.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(1, 77);
-            this.button12.Margin = new System.Windows.Forms.Padding(1);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(57, 36);
-            this.button12.TabIndex = 7;
-            this.button12.Text = "Left";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button12.UseVisualStyleBackColor = false;
-            // 
-            // button13
-            // 
-            this.button13.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button13.BackgroundImage")));
-            this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button13.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button13.Location = new System.Drawing.Point(60, 77);
-            this.button13.Margin = new System.Windows.Forms.Padding(1);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(57, 36);
-            this.button13.TabIndex = 8;
-            this.button13.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button13.UseVisualStyleBackColor = false;
-            // 
-            // button14
-            // 
-            this.button14.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button14.BackgroundImage")));
-            this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button14.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button14.ForeColor = System.Drawing.Color.White;
-            this.button14.Location = new System.Drawing.Point(119, 77);
-            this.button14.Margin = new System.Windows.Forms.Padding(1);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(57, 36);
-            this.button14.TabIndex = 9;
-            this.button14.Text = "Right";
-            this.button14.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button14.UseVisualStyleBackColor = false;
-            // 
-            // button15
-            // 
-            this.button15.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button15.BackgroundImage")));
-            this.button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button15.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button15.ForeColor = System.Drawing.Color.White;
-            this.button15.Location = new System.Drawing.Point(1, 115);
-            this.button15.Margin = new System.Windows.Forms.Padding(1);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(57, 36);
-            this.button15.TabIndex = 10;
-            this.button15.Text = "End";
-            this.button15.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button15.UseVisualStyleBackColor = false;
-            // 
-            // button16
-            // 
-            this.button16.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button16.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button16.BackgroundImage")));
-            this.button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button16.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button16.ForeColor = System.Drawing.Color.White;
-            this.button16.Location = new System.Drawing.Point(60, 115);
-            this.button16.Margin = new System.Windows.Forms.Padding(1);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(57, 36);
-            this.button16.TabIndex = 11;
-            this.button16.Text = "Down";
-            this.button16.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button16.UseVisualStyleBackColor = false;
-            // 
-            // button17
-            // 
-            this.button17.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button17.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button17.BackgroundImage")));
-            this.button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button17.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button17.ForeColor = System.Drawing.Color.White;
-            this.button17.Location = new System.Drawing.Point(119, 115);
-            this.button17.Margin = new System.Windows.Forms.Padding(1);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(57, 36);
-            this.button17.TabIndex = 12;
-            this.button17.Text = "下一页";
-            this.button17.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button17.UseVisualStyleBackColor = false;
-            // 
-            // button18
-            // 
-            this.button18.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button18.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button18.BackgroundImage")));
-            this.button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button18.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button18.ForeColor = System.Drawing.Color.White;
-            this.button18.Location = new System.Drawing.Point(178, 39);
-            this.button18.Margin = new System.Windows.Forms.Padding(1);
-            this.button18.Name = "button18";
-            this.tLPJogKye.SetRowSpan(this.button18, 2);
-            this.button18.Size = new System.Drawing.Size(57, 74);
-            this.button18.TabIndex = 13;
-            this.button18.Text = "+";
-            this.button18.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button18.UseVisualStyleBackColor = false;
-            // 
-            // button19
-            // 
-            this.button19.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button19.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button19.BackgroundImage")));
-            this.button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button19.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button19.ForeColor = System.Drawing.Color.White;
-            this.button19.Location = new System.Drawing.Point(178, 115);
-            this.button19.Margin = new System.Windows.Forms.Padding(1);
-            this.button19.Name = "button19";
-            this.tLPJogKye.SetRowSpan(this.button19, 2);
-            this.button19.Size = new System.Drawing.Size(57, 74);
-            this.button19.TabIndex = 14;
-            this.button19.Text = "Enter";
-            this.button19.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button19.UseVisualStyleBackColor = false;
-            // 
-            // button20
-            // 
-            this.button20.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button20.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button20.BackgroundImage")));
-            this.button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tLPJogKye.SetColumnSpan(this.button20, 2);
-            this.button20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button20.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button20.ForeColor = System.Drawing.Color.White;
-            this.button20.Location = new System.Drawing.Point(1, 153);
-            this.button20.Margin = new System.Windows.Forms.Padding(1);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(116, 36);
-            this.button20.TabIndex = 15;
-            this.button20.Text = "Ins";
-            this.button20.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button20.UseVisualStyleBackColor = false;
-            // 
-            // button21
-            // 
-            this.button21.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button21.BackgroundImage")));
-            this.button21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button21.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button21.ForeColor = System.Drawing.Color.White;
-            this.button21.Location = new System.Drawing.Point(119, 153);
-            this.button21.Margin = new System.Windows.Forms.Padding(1);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(57, 36);
-            this.button21.TabIndex = 16;
-            this.button21.Text = "Del";
-            this.button21.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button21.UseVisualStyleBackColor = false;
-            // 
-            // StatusErrorpanel
-            // 
-            this.StatusErrorpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.StatusErrorpanel.Controls.Add(this.plError);
-            this.StatusErrorpanel.Controls.Add(this.plStatue);
-            this.StatusErrorpanel.Controls.Add(this.tLPJogKye);
-            this.StatusErrorpanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.StatusErrorpanel.Location = new System.Drawing.Point(0, 539);
-            this.StatusErrorpanel.Name = "StatusErrorpanel";
-            this.StatusErrorpanel.Size = new System.Drawing.Size(1074, 191);
-            this.StatusErrorpanel.TabIndex = 4;
             // 
             // plStatue
             // 
@@ -2123,6 +1834,297 @@
             this.pictureBoxFV.TabIndex = 0;
             this.pictureBoxFV.TabStop = false;
             // 
+            // btnJogLock
+            // 
+            this.btnJogLock.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnJogLock.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnJogLock.BackgroundImage")));
+            this.btnJogLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnJogLock.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnJogLock.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnJogLock.ForeColor = System.Drawing.Color.White;
+            this.btnJogLock.Location = new System.Drawing.Point(1, 1);
+            this.btnJogLock.Margin = new System.Windows.Forms.Padding(1);
+            this.btnJogLock.Name = "btnJogLock";
+            this.btnJogLock.Size = new System.Drawing.Size(57, 36);
+            this.btnJogLock.TabIndex = 0;
+            this.btnJogLock.Text = "Lock";
+            this.btnJogLock.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnJogLock.UseVisualStyleBackColor = false;
+            this.btnJogLock.Click += new System.EventHandler(this.btnJogLock_Click);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button6.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(60, 1);
+            this.button6.Margin = new System.Windows.Forms.Padding(1);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(57, 36);
+            this.button6.TabIndex = 1;
+            this.button6.Text = "/";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button7.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(119, 1);
+            this.button7.Margin = new System.Windows.Forms.Padding(1);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(57, 36);
+            this.button7.TabIndex = 2;
+            this.button7.Text = "*";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button8.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Location = new System.Drawing.Point(178, 1);
+            this.button8.Margin = new System.Windows.Forms.Padding(1);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(57, 36);
+            this.button8.TabIndex = 3;
+            this.button8.Text = "-";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button9.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button9.ForeColor = System.Drawing.Color.White;
+            this.button9.Location = new System.Drawing.Point(1, 39);
+            this.button9.Margin = new System.Windows.Forms.Padding(1);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(57, 36);
+            this.button9.TabIndex = 4;
+            this.button9.Text = "Home";
+            this.button9.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button9.UseVisualStyleBackColor = false;
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button10.BackgroundImage")));
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button10.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button10.ForeColor = System.Drawing.Color.White;
+            this.button10.Location = new System.Drawing.Point(60, 39);
+            this.button10.Margin = new System.Windows.Forms.Padding(1);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(57, 36);
+            this.button10.TabIndex = 5;
+            this.button10.Text = "Up";
+            this.button10.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button10.UseVisualStyleBackColor = false;
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button11.BackgroundImage")));
+            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button11.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button11.ForeColor = System.Drawing.Color.White;
+            this.button11.Location = new System.Drawing.Point(119, 39);
+            this.button11.Margin = new System.Windows.Forms.Padding(1);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(57, 36);
+            this.button11.TabIndex = 6;
+            this.button11.Text = "上一页";
+            this.button11.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button11.UseVisualStyleBackColor = false;
+            // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button12.BackgroundImage")));
+            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button12.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button12.ForeColor = System.Drawing.Color.White;
+            this.button12.Location = new System.Drawing.Point(1, 77);
+            this.button12.Margin = new System.Windows.Forms.Padding(1);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(57, 36);
+            this.button12.TabIndex = 7;
+            this.button12.Text = "Left";
+            this.button12.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button12.UseVisualStyleBackColor = false;
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button13.BackgroundImage")));
+            this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button13.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button13.Location = new System.Drawing.Point(60, 77);
+            this.button13.Margin = new System.Windows.Forms.Padding(1);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(57, 36);
+            this.button13.TabIndex = 8;
+            this.button13.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button13.UseVisualStyleBackColor = false;
+            // 
+            // button14
+            // 
+            this.button14.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button14.BackgroundImage")));
+            this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button14.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button14.ForeColor = System.Drawing.Color.White;
+            this.button14.Location = new System.Drawing.Point(119, 77);
+            this.button14.Margin = new System.Windows.Forms.Padding(1);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(57, 36);
+            this.button14.TabIndex = 9;
+            this.button14.Text = "Right";
+            this.button14.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button14.UseVisualStyleBackColor = false;
+            // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button15.BackgroundImage")));
+            this.button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button15.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button15.ForeColor = System.Drawing.Color.White;
+            this.button15.Location = new System.Drawing.Point(1, 115);
+            this.button15.Margin = new System.Windows.Forms.Padding(1);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(57, 36);
+            this.button15.TabIndex = 10;
+            this.button15.Text = "End";
+            this.button15.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button15.UseVisualStyleBackColor = false;
+            // 
+            // button16
+            // 
+            this.button16.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button16.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button16.BackgroundImage")));
+            this.button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button16.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button16.ForeColor = System.Drawing.Color.White;
+            this.button16.Location = new System.Drawing.Point(60, 115);
+            this.button16.Margin = new System.Windows.Forms.Padding(1);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(57, 36);
+            this.button16.TabIndex = 11;
+            this.button16.Text = "Down";
+            this.button16.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button16.UseVisualStyleBackColor = false;
+            // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button17.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button17.BackgroundImage")));
+            this.button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button17.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button17.ForeColor = System.Drawing.Color.White;
+            this.button17.Location = new System.Drawing.Point(119, 115);
+            this.button17.Margin = new System.Windows.Forms.Padding(1);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(57, 36);
+            this.button17.TabIndex = 12;
+            this.button17.Text = "下一页";
+            this.button17.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button17.UseVisualStyleBackColor = false;
+            // 
+            // button18
+            // 
+            this.button18.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button18.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button18.BackgroundImage")));
+            this.button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button18.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button18.ForeColor = System.Drawing.Color.White;
+            this.button18.Location = new System.Drawing.Point(178, 39);
+            this.button18.Margin = new System.Windows.Forms.Padding(1);
+            this.button18.Name = "button18";
+            this.tLPJogKye.SetRowSpan(this.button18, 2);
+            this.button18.Size = new System.Drawing.Size(57, 74);
+            this.button18.TabIndex = 13;
+            this.button18.Text = "+";
+            this.button18.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button18.UseVisualStyleBackColor = false;
+            // 
+            // button19
+            // 
+            this.button19.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button19.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button19.BackgroundImage")));
+            this.button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button19.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button19.ForeColor = System.Drawing.Color.White;
+            this.button19.Location = new System.Drawing.Point(178, 115);
+            this.button19.Margin = new System.Windows.Forms.Padding(1);
+            this.button19.Name = "button19";
+            this.tLPJogKye.SetRowSpan(this.button19, 2);
+            this.button19.Size = new System.Drawing.Size(57, 74);
+            this.button19.TabIndex = 14;
+            this.button19.Text = "Enter";
+            this.button19.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button19.UseVisualStyleBackColor = false;
+            // 
+            // button20
+            // 
+            this.button20.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button20.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button20.BackgroundImage")));
+            this.button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tLPJogKye.SetColumnSpan(this.button20, 2);
+            this.button20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button20.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button20.ForeColor = System.Drawing.Color.White;
+            this.button20.Location = new System.Drawing.Point(1, 153);
+            this.button20.Margin = new System.Windows.Forms.Padding(1);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(116, 36);
+            this.button20.TabIndex = 15;
+            this.button20.Text = "Ins";
+            this.button20.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button20.UseVisualStyleBackColor = false;
+            // 
+            // button21
+            // 
+            this.button21.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button21.BackgroundImage")));
+            this.button21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button21.Font = new System.Drawing.Font("微软雅黑", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button21.ForeColor = System.Drawing.Color.White;
+            this.button21.Location = new System.Drawing.Point(119, 153);
+            this.button21.Margin = new System.Windows.Forms.Padding(1);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(57, 36);
+            this.button21.TabIndex = 16;
+            this.button21.Text = "Del";
+            this.button21.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button21.UseVisualStyleBackColor = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -2141,17 +2143,17 @@
             this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.panelNavigator.ResumeLayout(false);
             this.MaintabControl.ResumeLayout(false);
-            this.tabPageProgramme.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage7.ResumeLayout(false);
             this.Workpanel.ResumeLayout(false);
             this.panelComm.ResumeLayout(false);
             this.panelComm.PerformLayout();
             this.plError.ResumeLayout(false);
             this.tLPJogKye.ResumeLayout(false);
             this.StatusErrorpanel.ResumeLayout(false);
+            this.tabPageProgramme.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
             this.plStatue.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -2181,7 +2183,7 @@
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.Panel plError;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnJogkey;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;

@@ -173,6 +173,26 @@ namespace HANS_CNC.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap cssStart {
+            get {
+                object obj = ResourceManager.GetObject("cssStart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap cssStop {
+            get {
+                object obj = ResourceManager.GetObject("cssStop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap cssSystem {
             get {
                 object obj = ResourceManager.GetObject("cssSystem", resourceCulture);
