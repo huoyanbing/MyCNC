@@ -50,9 +50,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label1.Location = new System.Drawing.Point(5, 14);
+            this.label1.Location = new System.Drawing.Point(10, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 21);
+            this.label1.Size = new System.Drawing.Size(114, 41);
             this.label1.TabIndex = 2;
             this.label1.Text = "目录：";
             // 
@@ -61,18 +62,20 @@
             this.tBoxPath.BackColor = System.Drawing.SystemColors.Control;
             this.tBoxPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tBoxPath.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tBoxPath.Location = new System.Drawing.Point(61, 14);
+            this.tBoxPath.Location = new System.Drawing.Point(122, 28);
+            this.tBoxPath.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tBoxPath.Multiline = true;
             this.tBoxPath.Name = "tBoxPath";
             this.tBoxPath.ReadOnly = true;
-            this.tBoxPath.Size = new System.Drawing.Size(509, 24);
+            this.tBoxPath.Size = new System.Drawing.Size(1016, 46);
             this.tBoxPath.TabIndex = 3;
             // 
             // btnChangeDir
             // 
-            this.btnChangeDir.Location = new System.Drawing.Point(584, 95);
+            this.btnChangeDir.Location = new System.Drawing.Point(1168, 190);
+            this.btnChangeDir.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnChangeDir.Name = "btnChangeDir";
-            this.btnChangeDir.Size = new System.Drawing.Size(105, 58);
+            this.btnChangeDir.Size = new System.Drawing.Size(210, 116);
             this.btnChangeDir.TabIndex = 5;
             this.btnChangeDir.Text = "更改目录";
             this.btnChangeDir.UseVisualStyleBackColor = true;
@@ -80,9 +83,10 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(584, 239);
+            this.btnOK.Location = new System.Drawing.Point(1168, 478);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(105, 40);
+            this.btnOK.Size = new System.Drawing.Size(210, 80);
             this.btnOK.TabIndex = 6;
             this.btnOK.Text = "确定";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -90,9 +94,10 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(584, 305);
+            this.btnCancel.Location = new System.Drawing.Point(1168, 610);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(105, 40);
+            this.btnCancel.Size = new System.Drawing.Size(210, 80);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "退出";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -106,9 +111,10 @@
             this.comboBoxFliter.Items.AddRange(new object[] {
             "(*.ROU)",
             "(*.*)"});
-            this.comboBoxFliter.Location = new System.Drawing.Point(242, 59);
+            this.comboBoxFliter.Location = new System.Drawing.Point(484, 118);
+            this.comboBoxFliter.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.comboBoxFliter.Name = "comboBoxFliter";
-            this.comboBoxFliter.Size = new System.Drawing.Size(328, 24);
+            this.comboBoxFliter.Size = new System.Drawing.Size(652, 41);
             this.comboBoxFliter.TabIndex = 7;
             this.comboBoxFliter.SelectedIndexChanged += new System.EventHandler(this.comboBoxFliter_SelectedIndexChanged);
             // 
@@ -122,9 +128,10 @@
             // tVfolder
             // 
             this.tVfolder.BackColor = System.Drawing.SystemColors.Control;
-            this.tVfolder.Location = new System.Drawing.Point(12, 95);
+            this.tVfolder.Location = new System.Drawing.Point(24, 190);
+            this.tVfolder.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tVfolder.Name = "tVfolder";
-            this.tVfolder.Size = new System.Drawing.Size(224, 362);
+            this.tVfolder.Size = new System.Drawing.Size(444, 720);
             this.tVfolder.TabIndex = 8;
             this.tVfolder.DoubleClick += new System.EventHandler(this.tVfolder_DoubleClick);
             this.tVfolder.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tVfolder_MouseDown);
@@ -137,10 +144,11 @@
             this.columnHeader2});
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(242, 95);
+            this.listView1.Location = new System.Drawing.Point(484, 190);
+            this.listView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(328, 362);
+            this.listView1.Size = new System.Drawing.Size(652, 720);
             this.listView1.SmallImageList = this.imageList2;
             this.listView1.TabIndex = 9;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -167,19 +175,20 @@
             // 
             this.tBoxfolder.BackColor = System.Drawing.SystemColors.Control;
             this.tBoxfolder.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tBoxfolder.Location = new System.Drawing.Point(12, 59);
+            this.tBoxfolder.Location = new System.Drawing.Point(24, 118);
+            this.tBoxfolder.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tBoxfolder.Multiline = true;
             this.tBoxfolder.Name = "tBoxfolder";
             this.tBoxfolder.ReadOnly = true;
-            this.tBoxfolder.Size = new System.Drawing.Size(224, 24);
+            this.tBoxfolder.Size = new System.Drawing.Size(444, 44);
             this.tBoxfolder.TabIndex = 3;
             this.tBoxfolder.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FolderForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 480);
+            this.ClientSize = new System.Drawing.Size(1404, 960);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.tVfolder);
             this.Controls.Add(this.comboBoxFliter);
@@ -189,6 +198,7 @@
             this.Controls.Add(this.tBoxfolder);
             this.Controls.Add(this.tBoxPath);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "FolderForm";
             this.Text = "目录选择";
             this.Load += new System.EventHandler(this.FolderForm_Load);
