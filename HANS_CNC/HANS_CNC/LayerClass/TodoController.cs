@@ -35,6 +35,10 @@ namespace HANS_CNC.LayerClass
             todoModel.UpdateXMLDoc(newTodoListDataSet);
         }
 
+        public void UPDATEListItem()
+        {
+            todoModel.UPDATEListItem();
+        }
         public void start()
         {
             //throw new NotImplementedException();

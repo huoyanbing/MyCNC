@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace HANS_CNC.LayerClass
 {
     class TodoListModel : ITodoListModel
     {
+        DataSet dataSet = new DataSet("Entry");
+        ZPostion zPos = new ZPostion();
         public int AddTodoListItem()
         {
             DataSet ds = this.GetTodoList();
@@ -23,8 +26,27 @@ namespace HANS_CNC.LayerClass
 
         public DataSet GetTodoList()
         {
-            return new DataSet();        
-        }   
+            dataSet.Clear();
+            dataSet.ReadXml(ConfigurationClass.ReadSetting("TodoXMLFilePath"));
+            DataTable table = dataSet.Tables[0];
+            return dataSet;
+        }
+        
+        public void UPDATEListItem()
+        {
+            DataSet ds = this.GetTodoList();
+            foreach (DataTable table in ds.Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    foreach (DataColumn column in table.Columns)
+                    {
+                        row[column]=100.000;
+                    }
+                }
+            }
+            ds.WriteXml(ConfigurationClass.ReadSetting("TodoXMLFilePath"));
+        }
 
         public bool RemoveTodoListItem(int recordID)
         {

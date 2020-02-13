@@ -44,7 +44,7 @@ namespace HANS_CNC
             tLPJogKye.Visible = false;
             ControlBufferAll();
             ConfigData configData = new ConfigData();
-            ConfigurationClass.AddUpdateAppSettings("TodoXMLFilePath", Application.StartupPath);
+            ConfigurationClass.AddUpdateAppSettings("TodoXMLFilePath", Application.StartupPath+ "\\TodoList.xml");
             FolderForm.pathsChanged += FolderForm_pathsChanged;
         }
 

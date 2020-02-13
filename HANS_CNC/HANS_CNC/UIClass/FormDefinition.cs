@@ -25,10 +25,22 @@ namespace HANS_CNC
         Form_UserFlag,
     }
 
+    public class ZPostion
+    {
+        public double[] CurZPos;
+        public double[] PFootPos;
+        public ZPostion()
+        {
+            CurZPos = new double[6];
+            PFootPos = new double[6];
+        }
+    }
     public class UserEventArgs : EventArgs
     {
         public int nFV { get; set; }
         public string Ex2Path { get; set; }
+        public ZPostion zPostion;
+
     }
 
     public class ConfigData

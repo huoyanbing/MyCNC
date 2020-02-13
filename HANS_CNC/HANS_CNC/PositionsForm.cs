@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HANS_CNC.UIClass;
+using HANS_CNC.LayerClass;
 
 namespace HANS_CNC
 {
@@ -16,9 +17,12 @@ namespace HANS_CNC
         AutoSizeFormClass asc = new AutoSizeFormClass();
         string[] Zpos,ZSet,XYpos;
         bool blone;
+        ITodoListController controller ;
+        //public static event EventHandler<UserEventArgs> ZPositionChanged;
         public PositionsForm()
         {
-            InitializeComponent();     
+            InitializeComponent();
+            controller = new TodoController();
         }
         private void PositionsForm_Load(object sender, EventArgs e)
         {
@@ -73,8 +77,28 @@ namespace HANS_CNC
                 ControlTool.DataGridViewInitial(dataGridViewX, XYpos);
                 ControlTool.DataGridViewInitial(dataGridViewY, XYpos);
                 blone = false;
+                LoadDataGrid();
             }           
         }
 
+        private DataSet GetTodoListDataSet()
+        {
+            return controller.GetTodoList();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            controller.UPDATEListItem();
+        }
+
+        private void LoadDataGrid()
+        {
+            dataGridViewZ.DataSource = GetTodoListDataSet();
+            dataGridViewZ.DataMember = "Entry";
+        }
+        private void dgvZposInitial()
+        {
+            controller.AddTodo();
+        }
     }
 }

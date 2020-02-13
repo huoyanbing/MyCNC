@@ -13,5 +13,8 @@ namespace HANS_CNC.LayerClass
         int AddTodoListItem();
         bool RemoveTodoListItem(int recordID);
         void UpdateXMLDoc(DataSet newTodoListDataSet);
+        void UPDATEListItem();
+
+
     }
 }
