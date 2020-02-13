@@ -308,8 +308,12 @@ namespace HANS_CNC
                 {
                     string[] info = new string[5];
                     FileInfo fi = new FileInfo(files[i]);
-                    string Filetype = fi.Name.Substring(fi.Name.LastIndexOf(".") );
-                    string newtype = Filetype.ToLower();
+                    string newtype = String.Empty;
+                    if (fi.Name.Contains("."))
+                    {
+                        string Filetype = fi.Name.Substring(fi.Name.LastIndexOf("."));
+                        newtype = Filetype.ToLower();
+                    }                     
                     if (newtype == ".sys" || newtype == ".ini" || newtype == ".bin" || newtype == ".log" || newtype == ".com" || newtype == ".bat" || newtype == ".db")
                     { }
                     else
