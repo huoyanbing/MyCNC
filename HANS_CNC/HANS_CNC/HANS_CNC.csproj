@@ -117,6 +117,7 @@
     <Compile Include="LayerClass\TodoController.cs" />
     <Compile Include="LayerClass\TodoListModel.cs" />
     <Compile Include="LayerClass\TodoView.cs" />
+    <Compile Include="LayerClass\ZPostionModel.cs" />
     <Compile Include="OutputIOForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -167,6 +168,7 @@
     <Compile Include="UIClass\AutoSizeFormClass.cs" />
     <Compile Include="UIClass\Renderer.cs" />
     <Compile Include="UIClass\StringTool.cs" />
+    <Compile Include="UIClass\XmlOperate.cs" />
     <Compile Include="UserFlagForm.cs">
       <SubType>UserControl</SubType>
     </Compile>

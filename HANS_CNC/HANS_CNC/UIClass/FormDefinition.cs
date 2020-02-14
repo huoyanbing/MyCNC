@@ -35,6 +35,7 @@ namespace HANS_CNC
             PFootPos = new double[6];
         }
     }
+
     public class UserEventArgs : EventArgs
     {
         public int nFV { get; set; }

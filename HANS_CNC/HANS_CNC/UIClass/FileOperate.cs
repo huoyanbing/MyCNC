@@ -733,8 +733,7 @@ namespace HANS_CNC
             {
                 throw new Exception(ce.Message);
             }
-        }
-
+        }   
         public string ToDecrypt(string encryptKey, string str)
         {
             try

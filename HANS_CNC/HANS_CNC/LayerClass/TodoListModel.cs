@@ -12,7 +12,7 @@ namespace HANS_CNC.LayerClass
     class TodoListModel : ITodoListModel
     {
         DataSet dataSet = new DataSet("Entry");
-        ZPostion zPos = new ZPostion();
+        ZPostionModel zPos = new ZPostionModel();
         public int AddTodoListItem()
         {
             DataSet ds = this.GetTodoList();
