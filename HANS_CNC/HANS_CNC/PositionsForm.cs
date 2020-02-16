@@ -19,12 +19,14 @@ namespace HANS_CNC
         bool blone;
         ITodoListController controller ;
         ZPostionModel zPostionModel;
+        XmlOperate xmlOperate;
         //public static event EventHandler<UserEventArgs> ZPositionChanged;
         public PositionsForm()
         {
             InitializeComponent();
             controller = new TodoController();
             zPostionModel = new ZPostionModel();
+            xmlOperate = new XmlOperate(ConfigurationClass.ReadSetting("xmlPathTest"));
         }
         private void PositionsForm_Load(object sender, EventArgs e)
         {
@@ -81,6 +83,10 @@ namespace HANS_CNC
                 blone = false;
                 zPostionModel.ZPostionInitial();
                 LoadDataList();
+                xmlOperate.GenerateXMLFile(new string[2] { "ZPosition","ZFootPosition"}, new string[6] { "Z1", "Z2", "Z3", "Z4" , "Z5", "Z6" });
+                xmlOperate.GetXMLValue("ZPosition", "Z6");
+                xmlOperate.SetXMLValue("ZPosition", "Z6",100.ToString());
+                xmlOperate.DelXMLInfo("ZPosition");
             }           
         }
 

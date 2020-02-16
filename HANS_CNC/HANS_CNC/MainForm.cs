@@ -45,6 +45,7 @@ namespace HANS_CNC
             ControlBufferAll();
             ConfigData configData = new ConfigData();
             ConfigurationClass.AddUpdateAppSettings("TodoXMLFilePath", Application.StartupPath+ "\\TodoList.xml");
+            ConfigurationClass.AddUpdateAppSettings("xmlPathTest", "D:\\test.xml");
             FolderForm.pathsChanged += FolderForm_pathsChanged;
         }
 
