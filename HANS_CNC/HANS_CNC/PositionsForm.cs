@@ -18,14 +18,13 @@ namespace HANS_CNC
         string[] Zpos,ZSet,XYpos;
         bool blone;
         ITodoListController controller ;
-        ZPostionModel zPostionModel;
+
         XmlOperate xmlOperate;
         //public static event EventHandler<UserEventArgs> ZPositionChanged;
         public PositionsForm()
         {
             InitializeComponent();
             controller = new TodoController();
-            zPostionModel = new ZPostionModel();
             xmlOperate = new XmlOperate(ConfigurationClass.ReadSetting("xmlPathTest"));
         }
         private void PositionsForm_Load(object sender, EventArgs e)
@@ -81,7 +80,6 @@ namespace HANS_CNC
                 ControlTool.DataGridViewInitial(dataGridViewX, XYpos);
                 ControlTool.DataGridViewInitial(dataGridViewY, XYpos);
                 blone = false;
-                zPostionModel.ZPostionInitial();
                 LoadDataList();
                 xmlOperate.GenerateXMLFile(new string[2] { "ZPosition","ZFootPosition"}, new string[6] { "Z1", "Z2", "Z3", "Z4" , "Z5", "Z6" });
                 xmlOperate.GetXMLValue("ZPosition", "Z6");
@@ -113,6 +111,7 @@ namespace HANS_CNC
         private void LoadDataList()
         {
             BindingSource bs = new BindingSource();
+           // MainForm._mainForm.tableContainer.LTableModel[0].
             bs.DataSource = zPostionModel.DsixZAttri.Values;         
             dataGridViewZ.DataSource = bs;        
         }

@@ -21,7 +21,7 @@ namespace HANS_CNC
         List<UserControl> userControls;
         List<Image> imgFV;
         string[] strFV;
-
+        public TableContainer tableContainer = new TableContainer();
         ITodoListController controller;
         public MainForm()
         {
@@ -42,6 +42,7 @@ namespace HANS_CNC
             MyStatusPanel();
             CNCShowForm(FormName.Form_WorkStatus);
             tLPJogKye.Visible = false;
+            MyTable();
             ControlBufferAll();
             ConfigData configData = new ConfigData();
             ConfigurationClass.AddUpdateAppSettings("TodoXMLFilePath", Application.StartupPath+ "\\TodoList.xml");
@@ -89,6 +90,11 @@ namespace HANS_CNC
             TabOffset();
         }
 
+        private void MyTable()
+        {
+            tableContainer.AddTable(new ZPostionModel());
+            tableContainer.AddTable(new ZCompensation());
+        }
         private void ControlBufferAll()
         {
             foreach(Control c in userControls)

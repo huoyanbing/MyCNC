@@ -25,22 +25,17 @@ namespace HANS_CNC
         Form_UserFlag,
     }
 
-    public class ZPostion
+    public enum TableName:int
     {
-        public double[] CurZPos;
-        public double[] PFootPos;
-        public ZPostion()
-        {
-            CurZPos = new double[6];
-            PFootPos = new double[6];
-        }
+        Table_ZPosition,
+        Table_ZCompensation,
     }
+
 
     public class UserEventArgs : EventArgs
     {
         public int nFV { get; set; }
         public string Ex2Path { get; set; }
-        public ZPostion zPostion;
 
     }
 
