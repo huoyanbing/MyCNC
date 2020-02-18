@@ -112,6 +112,7 @@
       <DependentUpon>JogKeysForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LayerClass\ConfigurationClass.cs" />
+    <Compile Include="LayerClass\FormTableModel.cs" />
     <Compile Include="LayerClass\ITodoListController.cs" />
     <Compile Include="LayerClass\ITodoListModel.cs" />
     <Compile Include="LayerClass\TodoController.cs" />
