@@ -19,11 +19,12 @@ namespace HANS_CNC.LayerClass
                 string result = appSettings[key] ?? "Not Found";
                 return result;
             }
-            catch (ConfigurationErrorsException)
+            catch (ConfigurationErrorsException ex)
             {
-                return "Error";
+                throw ex;
             }
         }
+
         public static void AddUpdateAppSettings(string key, string value)
         {
             try
@@ -41,9 +42,9 @@ namespace HANS_CNC.LayerClass
                 configFile.Save(ConfigurationSaveMode.Modified);
                 ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
             }
-            catch (ConfigurationErrorsException)
+            catch (ConfigurationErrorsException ex)
             {
-                Console.WriteLine("Error writing app settings");
+                throw ex;
             }
         }
 

@@ -8,14 +8,14 @@ namespace HANS_CNC.LayerClass
 {
     public class TableContainer
     {
-        public List<FormTableModel> LTableModel;
+        public List<TableModel> LTableModel;
         public TableContainer()
         {
-            LTableModel = new List<FormTableModel>();
+            LTableModel = new List<TableModel>();
         }
-        public void AddTable(FormTableModel s)
+        public void AddTable(TableModel s)
         {
-            LTableModel.Add(s);
+            LTableModel.Add(s);          
             s.TableInitial();
         }
          

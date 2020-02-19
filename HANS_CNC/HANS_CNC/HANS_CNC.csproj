@@ -117,10 +117,10 @@
     <Compile Include="LayerClass\ITodoListController.cs" />
     <Compile Include="LayerClass\ITodoListModel.cs" />
     <Compile Include="LayerClass\TableContainer.cs" />
+    <Compile Include="LayerClass\TableModel.cs" />
     <Compile Include="LayerClass\TodoController.cs" />
     <Compile Include="LayerClass\TodoListModel.cs" />
     <Compile Include="LayerClass\TodoView.cs" />
-    <Compile Include="LayerClass\ZPostionModel.cs" />
     <Compile Include="OutputIOForm.cs">
       <SubType>UserControl</SubType>
     </Compile>

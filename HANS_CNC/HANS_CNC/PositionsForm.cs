@@ -19,13 +19,11 @@ namespace HANS_CNC
         bool blone;
         ITodoListController controller ;
 
-        XmlOperate xmlOperate;
         //public static event EventHandler<UserEventArgs> ZPositionChanged;
         public PositionsForm()
         {
             InitializeComponent();
             controller = new TodoController();
-            xmlOperate = new XmlOperate(ConfigurationClass.ReadSetting("xmlPathTest"));
         }
         private void PositionsForm_Load(object sender, EventArgs e)
         {
@@ -75,16 +73,13 @@ namespace HANS_CNC
             asc.controlAutoSize(this,1);
             if(blone)
             {
-                ControlTool.DataGridViewInitial(dataGridViewZ, Zpos);
-                ControlTool.DataGridViewInitial(dataGridViewZSet, ZSet);
-                ControlTool.DataGridViewInitial(dataGridViewX, XYpos);
-                ControlTool.DataGridViewInitial(dataGridViewY, XYpos);
+                ControlTool.DataGridViewControInitial(dataGridViewZ);
+                ControlTool.DataGridViewControInitial(dataGridViewZSet);
+                ControlTool.DataGridViewControInitial(dataGridViewX);
+                ControlTool.DataGridViewControInitial(dataGridViewY);
                 blone = false;
                 LoadDataList();
-                xmlOperate.GenerateXMLFile(new string[2] { "ZPosition","ZFootPosition"}, new string[6] { "Z1", "Z2", "Z3", "Z4" , "Z5", "Z6" });
-                xmlOperate.GetXMLValue("ZPosition", "Z6");
-                xmlOperate.SetXMLValue("ZPosition", "Z6",100.ToString());
-                xmlOperate.DelXMLInfo("ZPosition");
+
             }           
         }
 
@@ -110,10 +105,23 @@ namespace HANS_CNC
 
         private void LoadDataList()
         {
-            BindingSource bs = new BindingSource();
-           // MainForm._mainForm.tableContainer.LTableModel[0].
-            bs.DataSource = zPostionModel.DsixZAttri.Values;         
-            dataGridViewZ.DataSource = bs;        
+            BindingSource bs1, bs2, bs3, bs4;
+            bs1 = new BindingSource();
+            bs2 = new BindingSource();
+            bs3 = new BindingSource();
+            bs4 = new BindingSource();
+            bs1.DataSource = MainForm._mainForm.tableContainer.LTableModel[0].DSixZAttri.Values;
+            bs2.DataSource = MainForm._mainForm.tableContainer.LTableModel[1].DSixZAttri.Values;
+            bs3.DataSource = MainForm._mainForm.tableContainer.LTableModel[2].DTwoXAttri.Values;
+            bs4.DataSource = MainForm._mainForm.tableContainer.LTableModel[3].DYAttri.Values;
+            dataGridViewZ.DataSource = bs1;
+            dataGridViewZSet.DataSource = bs2;
+            dataGridViewX.DataSource = bs3;
+            dataGridViewY.DataSource = bs4;
+            ControlTool.DataGridViewTitle(dataGridViewZ, Zpos);
+            ControlTool.DataGridViewTitle(dataGridViewZSet, ZSet);
+            ControlTool.DataGridViewTitle(dataGridViewX, XYpos);
+            ControlTool.DataGridViewTitle(dataGridViewY, XYpos);
         }
     }
 }
