@@ -22,6 +22,9 @@ namespace HANS_CNC.UIClass
         {
             try
             {
+                string Dirpath= StringTool.DelLastChar(_filePath, "\\");
+                if (Directory.Exists(Dirpath) == false)
+                    Directory.CreateDirectory(Dirpath);//新建文件夹
                 if (File.Exists(_filePath) == false)
                 {
                     using (File.Create(_filePath)) //新建文件

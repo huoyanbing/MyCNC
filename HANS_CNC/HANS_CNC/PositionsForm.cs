@@ -51,15 +51,19 @@ namespace HANS_CNC
                 {
                     backgroundBlack = new SolidBrush(Color.FromArgb(64, 128, 128));//Tab整体背景颜色
                 }
+                
                 Rectangle myTabRect = tabControlPos.GetTabRect(e.Index);
                 e.Graphics.FillRectangle(backgroundBlack, myTabRect);
+                backgroundBlack.Dispose();
                 StringFormat sftTab = new StringFormat();
                 sftTab.LineAlignment = StringAlignment.Center;
                 sftTab.Alignment = StringAlignment.Center;
                 RectangleF recTab = (RectangleF)tabControlPos.GetTabRect(e.Index);//绘制区域
-                 Font font = new System.Drawing.Font("微软雅黑", 11F);
-                SolidBrush bruFont = new SolidBrush(Color.White);// 标签字体颜色
-                e.Graphics.DrawString(tabControlPos.TabPages[e.Index].Text, font, bruFont, recTab, sftTab);    
+                using (Font font = new System.Drawing.Font("微软雅黑", 11F))
+                using (SolidBrush bruFont = new SolidBrush(Color.White))// 标签字体颜色
+                {
+                    e.Graphics.DrawString(tabControlPos.TabPages[e.Index].Text, font, bruFont, recTab, sftTab);
+                }                 
                 e.Graphics.Dispose();
             }
             catch (Exception ex)
@@ -73,12 +77,13 @@ namespace HANS_CNC
             asc.controlAutoSize(this,1);
             if(blone)
             {
+               // ControlTool.DataGridViewInitial(dataGridViewZ, Zpos);
                 ControlTool.DataGridViewControInitial(dataGridViewZ);
                 ControlTool.DataGridViewControInitial(dataGridViewZSet);
                 ControlTool.DataGridViewControInitial(dataGridViewX);
                 ControlTool.DataGridViewControInitial(dataGridViewY);
                 blone = false;
-                LoadDataList();
+                LoadDataListTab();
 
             }           
         }
@@ -90,7 +95,14 @@ namespace HANS_CNC
 
         private void button1_Click(object sender, EventArgs e)
         {
-            controller.UPDATEListItem();
+            //controller.UPDATEListItem();
+            FromTableClass a = new SixZAttri() { Z1 = 100, Z2 = 59, Z3 = 25, Z4 = 90, Z5 = 456, Z6 = 85 };
+            MainForm._mainForm.tableContainer.LTableModel[0].UpdateTable("ZPos", a);
+            BindingSource bs = new BindingSource();
+            bs.DataSource = MainForm._mainForm.tableContainer.LTableModel[0].DSixZAttri.Values;
+            dataGridViewZ.DataSource = bs;
+
+
         }
 
         private void LoadDataGrid()
@@ -98,30 +110,69 @@ namespace HANS_CNC
             dataGridViewZ.DataSource = GetTodoListDataSet();
             dataGridViewZ.DataMember = "Entry";
         }
+
+        private void tabControlPos_Selected(object sender, TabControlEventArgs e)
+        {
+            switch (e.TabPageIndex)
+            {
+                case 0:
+                    UpdateDGVZPos();
+                    break;
+                case 1:
+                    UpdateDGVZComp();
+                    break;
+                case 2:
+                    UpdateDGVXYPos();
+                    break;
+                default:
+                    break;
+            }
+         }
+
         private void dgvZposInitial()
         {
             controller.AddTodo();
         }
 
+        private void LoadDataListTab()
+        {
+            dataGridViewZ.DataSource = MainForm._mainForm.tableContainer.Lbs[0];
+            dataGridViewZSet.DataSource = MainForm._mainForm.tableContainer.Lbs[1];
+            dataGridViewX.DataSource = MainForm._mainForm.tableContainer.Lbs[2];
+            dataGridViewY.DataSource = MainForm._mainForm.tableContainer.Lbs[3];
+            ControlTool.DataGridViewTitle(dataGridViewZ, Zpos);
+            tabControlPos.SelectedIndex = 1;
+            ControlTool.DataGridViewTitle(dataGridViewZSet, ZSet);
+            tabControlPos.SelectedIndex = 2;
+            ControlTool.DataGridViewTitle(dataGridViewX, XYpos);
+            ControlTool.DataGridViewTitle(dataGridViewY, XYpos);
+            tabControlPos.SelectedIndex = 0;
+        }
         private void LoadDataList()
         {
-            BindingSource bs1, bs2, bs3, bs4;
-            bs1 = new BindingSource();
-            bs2 = new BindingSource();
-            bs3 = new BindingSource();
-            bs4 = new BindingSource();
-            bs1.DataSource = MainForm._mainForm.tableContainer.LTableModel[0].DSixZAttri.Values;
-            bs2.DataSource = MainForm._mainForm.tableContainer.LTableModel[1].DSixZAttri.Values;
-            bs3.DataSource = MainForm._mainForm.tableContainer.LTableModel[2].DTwoXAttri.Values;
-            bs4.DataSource = MainForm._mainForm.tableContainer.LTableModel[3].DYAttri.Values;
-            dataGridViewZ.DataSource = bs1;
-            dataGridViewZSet.DataSource = bs2;
-            dataGridViewX.DataSource = bs3;
-            dataGridViewY.DataSource = bs4;
+            dataGridViewZ.DataSource = MainForm._mainForm.tableContainer.Lbs[0];           
+            dataGridViewZSet.DataSource = MainForm._mainForm.tableContainer.Lbs[1];
+            dataGridViewX.DataSource = MainForm._mainForm.tableContainer.Lbs[2];
+            dataGridViewY.DataSource = MainForm._mainForm.tableContainer.Lbs[3];
             ControlTool.DataGridViewTitle(dataGridViewZ, Zpos);
             ControlTool.DataGridViewTitle(dataGridViewZSet, ZSet);
             ControlTool.DataGridViewTitle(dataGridViewX, XYpos);
             ControlTool.DataGridViewTitle(dataGridViewY, XYpos);
+        }
+        private void UpdateDGVZPos()
+        {
+            dataGridViewZ.DataSource = null;
+            dataGridViewZ.DataSource = MainForm._mainForm.tableContainer.Lbs[0];
+        }
+        private void UpdateDGVZComp()
+        {
+            dataGridViewZSet.DataSource = MainForm._mainForm.tableContainer.Lbs[1];
+        }
+
+        private void UpdateDGVXYPos()
+        {
+            dataGridViewX.DataSource = MainForm._mainForm.tableContainer.Lbs[2];
+            dataGridViewY.DataSource = MainForm._mainForm.tableContainer.Lbs[3];
         }
     }
 }

@@ -66,5 +66,10 @@ namespace HANS_CNC.UIClass
             return QuickValidate(@"^[A-Z0-9\s\b]*$", _value);
         }
 
+        public static string DelLastChar(string str, string strchar)
+        {
+            return str.Substring(0, str.LastIndexOf(strchar));
+        }
+
     }
 }

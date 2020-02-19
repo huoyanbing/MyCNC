@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HANS_CNC.LayerClass
 {
@@ -35,6 +36,7 @@ namespace HANS_CNC.LayerClass
             get { return _DYAttri; }
             set { _DYAttri = value; }
         }
-        public abstract void TableInitial();
+        public abstract BindingSource TableInitial();
+        public abstract void UpdateTable(string TName, FromTableClass TClass);
     }
 }
