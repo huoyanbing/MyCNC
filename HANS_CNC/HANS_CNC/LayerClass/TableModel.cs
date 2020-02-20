@@ -44,5 +44,6 @@ namespace HANS_CNC.LayerClass
         }
         public abstract void TableInitial();
         public abstract void UpdateTable(string TName, FromTableClass TClass);
+        public abstract void LoadTable();
     }
 }

@@ -99,10 +99,12 @@ namespace HANS_CNC
             FromTableClass a = new SixZAttri() { Z1 = 100, Z2 = 59.35, Z3 = 25.07, Z4 = 90.58, Z5 = 456, Z6 = 85 };
             FromTableClass a1 = new SixZAttri() { Z1 = 500, Z2 = 658.35, Z3 = 2548.236, Z4 = 21469.325, Z5 = 25412.365, Z6 = 254893.365 };
             FromTableClass b1 = new TwoXAttri() { X1 = 9000, X2 = 632.31 };
+            FromTableClass b2 = new YAttri() { Y=5860 };
             MainForm._mainForm.tableContainer.LTableModel[0].UpdateTable("ZPos", a);
             MainForm._mainForm.tableContainer.LTableModel[0].UpdateTable("FootPos", a);
             MainForm._mainForm.tableContainer.LTableModel[1].UpdateTable("ZModifier", a1);
             MainForm._mainForm.tableContainer.LTableModel[2].UpdateTable("AbCoord", b1);
+            MainForm._mainForm.tableContainer.LTableModel[3].UpdateTable("AbCoord", b2);
             LoadDataList();
         }
 
@@ -165,6 +167,12 @@ namespace HANS_CNC
             dataGridViewZ.DataSource = MainForm._mainForm.tableContainer.LTableModel[0].BS;
             ControlTool.DataGridViewTitle(dataGridViewZ, Zpos);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MainForm._mainForm.tableContainer.LTableModel[1].LoadTable();
+        }
+
         private void UpdateDGVZComp()
         {
             dataGridViewZSet.DataSource = MainForm._mainForm.tableContainer.LTableModel[1].BS;

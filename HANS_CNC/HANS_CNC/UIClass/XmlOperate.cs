@@ -16,22 +16,20 @@ namespace HANS_CNC.UIClass
         private XmlElement _element;
         public XmlOperate(string xmlFilePath)
         {
-            //获取XML文件的绝对路径
             _filePath = xmlFilePath;
         }
         public  string[,] GenerateXMLFile(string[] xmlRows, string[] xmlColumns)
         {
             try
             {
+                myXmlDoc = new XmlDocument(); //初始化一个xml实例
                 string Dirpath= StringTool.DelLastChar(_filePath, "\\");
                 if (Directory.Exists(Dirpath) == false)
                     Directory.CreateDirectory(Dirpath);//新建文件夹
                 if (File.Exists(_filePath) == false)
                 {
                     using (File.Create(_filePath)) //新建文件
-                    { }
-                
-                    myXmlDoc = new XmlDocument(); //初始化一个xml实例
+                    { }               
                     XmlElement rootElement = myXmlDoc.CreateElement("CNCbody");   //创建xml的根节点
                     myXmlDoc.AppendChild(rootElement);     //将根节点加入到xml文件中（AppendChild）
                     foreach (var a in xmlRows)
@@ -127,6 +125,19 @@ namespace HANS_CNC.UIClass
                 }
             }
             return strtable;
+        }
+        public void UpdataXML(string[,] strTable)
+        {
+            XmlNode rootNode = myXmlDoc.FirstChild;
+            XmlNodeList _NodeList = rootNode.ChildNodes;
+            for (int i = 0; i < _NodeList.Count; i++)
+            {
+                for (int j = 0; j < _NodeList[i].ChildNodes.Count; j++)
+                {
+                    _NodeList[i].ChildNodes[j].InnerText= strTable[i, j];
+                }
+            }
+            myXmlDoc.Save(_filePath);
         }
 
         public void SetXMLValue(string TableName, string ColName,string strVal)

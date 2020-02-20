@@ -38,7 +38,6 @@ namespace HANS_CNC.UIClass
             dataGridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridView.ColumnHeadersHeight = 40;
             dataGridView.RowTemplate.Height = 28;
-           // dataGridView.Height = dataGridView.ColumnHeadersHeight + dataGridView.RowTemplate.Height * strRow.Length;
             dataGridView.AllowUserToAddRows = false;
         }
         public static void DataGridViewTitle(DataGridView dataGridView, string[] strRow)
