@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -18,7 +19,7 @@ namespace HANS_CNC.UIClass
             //获取XML文件的绝对路径
             _filePath = xmlFilePath;
         }
-        public  void GenerateXMLFile(string[] xmlRows, string[] xmlColumns)
+        public  string[,] GenerateXMLFile(string[] xmlRows, string[] xmlColumns)
         {
             try
             {
@@ -29,24 +30,31 @@ namespace HANS_CNC.UIClass
                 {
                     using (File.Create(_filePath)) //新建文件
                     { }
-                }
-                myXmlDoc = new XmlDocument(); //初始化一个xml实例
-                XmlElement rootElement = myXmlDoc.CreateElement("CNCbody");   //创建xml的根节点
-                myXmlDoc.AppendChild(rootElement);     //将根节点加入到xml文件中（AppendChild）
-                foreach (var a in xmlRows)
-                {
-                    XmlElement firstLevelElement = myXmlDoc.CreateElement(a); //初始化第一层的第一个子节点
-                   // firstLevelElement.SetAttribute("Name", a); //填充第一层的第一个子节点的属性值（SetAttribute）
-                    rootElement.AppendChild(firstLevelElement); //将第一层的第一个子节点加入到根节点下
-                    foreach (var b in xmlColumns)
+                
+                    myXmlDoc = new XmlDocument(); //初始化一个xml实例
+                    XmlElement rootElement = myXmlDoc.CreateElement("CNCbody");   //创建xml的根节点
+                    myXmlDoc.AppendChild(rootElement);     //将根节点加入到xml文件中（AppendChild）
+                    foreach (var a in xmlRows)
                     {
-                        XmlElement xmlElement = myXmlDoc.CreateElement(b);
-                        xmlElement.InnerText = "0.00";
-                        firstLevelElement.AppendChild(xmlElement);
+                        XmlElement firstLevelElement = myXmlDoc.CreateElement(a); //初始化第一层的第一个子节点
+                       // firstLevelElement.SetAttribute("Name", a); //填充第一层的第一个子节点的属性值（SetAttribute）
+                        rootElement.AppendChild(firstLevelElement); //将第一层的第一个子节点加入到根节点下
+                        foreach (var b in xmlColumns)
+                        {
+                            XmlElement xmlElement = myXmlDoc.CreateElement(b);
+                            xmlElement.InnerText = "0.00";
+                            firstLevelElement.AppendChild(xmlElement);
+                        }
                     }
+                    _element = myXmlDoc.DocumentElement;
+                    myXmlDoc.Save(_filePath);
+                    return null;
                 }
-                _element = myXmlDoc.DocumentElement;
-                myXmlDoc.Save(_filePath);
+                else
+                {
+                    myXmlDoc.Load(_filePath);
+                    return GetXMLDataValue();
+                }
             }
             catch(Exception ex)
             {
@@ -95,11 +103,47 @@ namespace HANS_CNC.UIClass
             XmlNode colNode = tableNode.SelectSingleNode(ColName);
             return colNode.InnerText;
         }
+        public string[] GetXMLRowValue(string TableName)
+        {
+            XmlNode tableNode = myXmlDoc.DocumentElement.SelectSingleNode(TableName);
+            XmlNodeList _NodeList = tableNode.ChildNodes;
+            string[] strRow = new string[_NodeList.Count];
+            for (int i = 0; i < _NodeList.Count; i++)
+            {
+                strRow[i]=_NodeList[i].InnerText;
+            }
+            return strRow;
+        }
+        public string[,] GetXMLDataValue()
+        {
+            XmlNode rootNode = myXmlDoc.FirstChild;
+            XmlNodeList firstNodeList = rootNode.ChildNodes;
+            string[,] strtable = new string[firstNodeList.Count, firstNodeList[0].ChildNodes.Count];
+            for (int i=0;i< firstNodeList.Count;i++)
+            {
+                for (int j = 0; j < firstNodeList[i].ChildNodes.Count; j++)
+                {
+                    strtable[i, j] = firstNodeList[i].ChildNodes[j].InnerText;
+                }
+            }
+            return strtable;
+        }
+
         public void SetXMLValue(string TableName, string ColName,string strVal)
         {
             XmlNode tableNode = myXmlDoc.DocumentElement.SelectSingleNode(TableName);
             XmlElement TableElement = (XmlElement)tableNode;
             TableElement[ColName].InnerText = strVal;
+            myXmlDoc.Save(_filePath);
+        }
+        public void SetXMLRowValue(string TableName, string[] strRow)
+        {
+            XmlNode tableNode = myXmlDoc.DocumentElement.SelectSingleNode(TableName);
+            XmlNodeList _NodeList = tableNode.ChildNodes;
+            for(int i=0;i< _NodeList.Count;i++)
+            {
+                _NodeList[i].InnerText = strRow[i];
+            }
             myXmlDoc.Save(_filePath);
         }
         public void DelXMLInfo(string RowName)

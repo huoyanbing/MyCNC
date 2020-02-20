@@ -96,13 +96,14 @@ namespace HANS_CNC
         private void button1_Click(object sender, EventArgs e)
         {
             //controller.UPDATEListItem();
-            FromTableClass a = new SixZAttri() { Z1 = 100, Z2 = 59, Z3 = 25, Z4 = 90, Z5 = 456, Z6 = 85 };
+            FromTableClass a = new SixZAttri() { Z1 = 100, Z2 = 59.35, Z3 = 25.07, Z4 = 90.58, Z5 = 456, Z6 = 85 };
+            FromTableClass a1 = new SixZAttri() { Z1 = 500, Z2 = 658.35, Z3 = 2548.236, Z4 = 21469.325, Z5 = 25412.365, Z6 = 254893.365 };
+            FromTableClass b1 = new TwoXAttri() { X1 = 9000, X2 = 632.31 };
             MainForm._mainForm.tableContainer.LTableModel[0].UpdateTable("ZPos", a);
-            BindingSource bs = new BindingSource();
-            bs.DataSource = MainForm._mainForm.tableContainer.LTableModel[0].DSixZAttri.Values;
-            dataGridViewZ.DataSource = bs;
-
-
+            MainForm._mainForm.tableContainer.LTableModel[0].UpdateTable("FootPos", a);
+            MainForm._mainForm.tableContainer.LTableModel[1].UpdateTable("ZModifier", a1);
+            MainForm._mainForm.tableContainer.LTableModel[2].UpdateTable("AbCoord", b1);
+            LoadDataList();
         }
 
         private void LoadDataGrid()
@@ -136,10 +137,10 @@ namespace HANS_CNC
 
         private void LoadDataListTab()
         {
-            dataGridViewZ.DataSource = MainForm._mainForm.tableContainer.Lbs[0];
-            dataGridViewZSet.DataSource = MainForm._mainForm.tableContainer.Lbs[1];
-            dataGridViewX.DataSource = MainForm._mainForm.tableContainer.Lbs[2];
-            dataGridViewY.DataSource = MainForm._mainForm.tableContainer.Lbs[3];
+            dataGridViewZ.DataSource = MainForm._mainForm.tableContainer.LTableModel[0].BS;
+            dataGridViewZSet.DataSource = MainForm._mainForm.tableContainer.LTableModel[1].BS;
+            dataGridViewX.DataSource = MainForm._mainForm.tableContainer.LTableModel[2].BS;
+            dataGridViewY.DataSource = MainForm._mainForm.tableContainer.LTableModel[3].BS;
             ControlTool.DataGridViewTitle(dataGridViewZ, Zpos);
             tabControlPos.SelectedIndex = 1;
             ControlTool.DataGridViewTitle(dataGridViewZSet, ZSet);
@@ -150,10 +151,10 @@ namespace HANS_CNC
         }
         private void LoadDataList()
         {
-            dataGridViewZ.DataSource = MainForm._mainForm.tableContainer.Lbs[0];           
-            dataGridViewZSet.DataSource = MainForm._mainForm.tableContainer.Lbs[1];
-            dataGridViewX.DataSource = MainForm._mainForm.tableContainer.Lbs[2];
-            dataGridViewY.DataSource = MainForm._mainForm.tableContainer.Lbs[3];
+            dataGridViewZ.DataSource = MainForm._mainForm.tableContainer.LTableModel[0].BS;
+            dataGridViewZSet.DataSource = MainForm._mainForm.tableContainer.LTableModel[1].BS;
+            dataGridViewX.DataSource = MainForm._mainForm.tableContainer.LTableModel[2].BS;
+            dataGridViewY.DataSource = MainForm._mainForm.tableContainer.LTableModel[3].BS;
             ControlTool.DataGridViewTitle(dataGridViewZ, Zpos);
             ControlTool.DataGridViewTitle(dataGridViewZSet, ZSet);
             ControlTool.DataGridViewTitle(dataGridViewX, XYpos);
@@ -161,18 +162,21 @@ namespace HANS_CNC
         }
         private void UpdateDGVZPos()
         {
-            dataGridViewZ.DataSource = null;
-            dataGridViewZ.DataSource = MainForm._mainForm.tableContainer.Lbs[0];
+            dataGridViewZ.DataSource = MainForm._mainForm.tableContainer.LTableModel[0].BS;
+            ControlTool.DataGridViewTitle(dataGridViewZ, Zpos);
         }
         private void UpdateDGVZComp()
         {
-            dataGridViewZSet.DataSource = MainForm._mainForm.tableContainer.Lbs[1];
+            dataGridViewZSet.DataSource = MainForm._mainForm.tableContainer.LTableModel[1].BS;
+            ControlTool.DataGridViewTitle(dataGridViewZSet, ZSet);
         }
 
         private void UpdateDGVXYPos()
         {
-            dataGridViewX.DataSource = MainForm._mainForm.tableContainer.Lbs[2];
-            dataGridViewY.DataSource = MainForm._mainForm.tableContainer.Lbs[3];
+            dataGridViewX.DataSource = MainForm._mainForm.tableContainer.LTableModel[2].BS;
+            dataGridViewY.DataSource = MainForm._mainForm.tableContainer.LTableModel[3].BS;
+            ControlTool.DataGridViewTitle(dataGridViewX, XYpos);
+            ControlTool.DataGridViewTitle(dataGridViewY, XYpos);
         }
     }
 }

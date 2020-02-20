@@ -20,6 +20,12 @@ namespace HANS_CNC.LayerClass
         protected string[] ZComp = { "ZModifier", "Qoffset" };
         protected string[] XYpos = { "AbCoord", "DeskCoord", "PCBCoord", "Servocomp" };
         protected XmlOperate xmlOperate;
+        protected BindingSource bs;
+        public BindingSource BS
+        {
+            get { return bs; }
+            set { bs = value; }
+        }
 
         public Dictionary<string, SixZAttri> DSixZAttri
         {
@@ -36,7 +42,7 @@ namespace HANS_CNC.LayerClass
             get { return _DYAttri; }
             set { _DYAttri = value; }
         }
-        public abstract BindingSource TableInitial();
+        public abstract void TableInitial();
         public abstract void UpdateTable(string TName, FromTableClass TClass);
     }
 }
