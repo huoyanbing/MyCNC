@@ -68,6 +68,44 @@ namespace HANS_CNC.LayerClass
             }
             xmlOperate.UpdataXML(strTable);
         }
+
+        public override FromTableClass GetTableInfo(string TName)
+        {
+            SixZAttri _sixZAttri = _DSixZAttri[TName];
+            return _sixZAttri;
+        }
+
+        public override void UpdateTable(string TName, params object[] list)
+        {
+            try
+            {
+                bs = new BindingSource();
+                SixZAttri _sixZAttri = new SixZAttri();
+                _sixZAttri = _DSixZAttri[TName];
+                Type myType = typeof(SixZAttri);
+                PropertyInfo[] myProperty = myType.GetProperties();
+                string[] strRow = new string[myProperty.Length];
+                for (int i = 0; i < list.Length; i++)
+                {
+                    if(!list[i].Equals(-1))
+                    {
+                        myProperty[i].SetValue(_sixZAttri, list[i]);
+                    }
+                }
+                for (int i = 0; i < myProperty.Length; i++)
+                {
+                    strRow[i] = myProperty[i].GetValue(_sixZAttri).ToString();
+                }
+                _DSixZAttri[TName] = _sixZAttri;
+                bs.DataSource = _DSixZAttri.Values;
+                xmlOperate.SetXMLRowValue(TName, strRow);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+           
+        }
     }
     public class ZCompensation: TableModel
     {
@@ -128,6 +166,29 @@ namespace HANS_CNC.LayerClass
                 }
             }
             xmlOperate.UpdataXML(strTable);
+        }
+
+        public override FromTableClass GetTableInfo(string TName)
+        {
+            SixZAttri _sixZAttri = _DSixZAttri[TName];
+            return _sixZAttri;
+        }
+
+        public override void UpdateTable(string TName, params object[] list)
+        {
+            bs = new BindingSource();
+            SixZAttri _sixZAttri = new SixZAttri();
+            Type myType = typeof(SixZAttri);
+            PropertyInfo[] myProperty = myType.GetProperties();
+            string[] strRow = new string[myProperty.Length];
+            for (int i = 0; i < myProperty.Length; i++)
+            {
+                myProperty[i].SetValue(TName, (double)list[i]);
+                strRow[i] = list[i].ToString();
+            }
+            _DSixZAttri[TName] = _sixZAttri;
+            bs.DataSource = _DSixZAttri.Values;
+            xmlOperate.SetXMLRowValue(TName, strRow);
         }
     }
     public class XPosition : TableModel
@@ -197,6 +258,29 @@ namespace HANS_CNC.LayerClass
             }
             xmlOperate.UpdataXML(strTable);
         }
+
+        public override FromTableClass GetTableInfo(string TName)
+        {
+            TwoXAttri _twoXAttri = _DTwoXAttri[TName];
+            return _twoXAttri;
+        }
+
+        public override void UpdateTable(string TName, params object[] list)
+        {
+            bs = new BindingSource();
+            TwoXAttri _twoZAttri = new TwoXAttri();
+            Type myType = typeof(TwoXAttri);
+            PropertyInfo[] myProperty = myType.GetProperties();
+            string[] strRow = new string[myProperty.Length];
+            for (int i = 0; i < myProperty.Length; i++)
+            {
+                myProperty[i].SetValue(TName, (double)list[i]);
+                strRow[i] = list[i].ToString();
+            }
+            _DTwoXAttri[TName] = _twoZAttri;
+            bs.DataSource = _DTwoXAttri.Values;
+            xmlOperate.SetXMLRowValue(TName, strRow);
+        }
     }
     public class YPosition : TableModel
     {
@@ -265,6 +349,29 @@ namespace HANS_CNC.LayerClass
                 }
             }
             xmlOperate.UpdataXML(strTable);
+        }
+
+        public override FromTableClass GetTableInfo(string TName)
+        {
+            YAttri _YAttri = _DYAttri[TName];
+            return _YAttri;
+        }
+
+        public override void UpdateTable(string TName, params object[] list)
+        {
+            bs = new BindingSource();
+            YAttri _YAttri = new YAttri();
+            Type myType = typeof(YAttri);
+            PropertyInfo[] myProperty = myType.GetProperties();
+            string[] strRow = new string[myProperty.Length];
+            for (int i = 0; i < myProperty.Length; i++)
+            {
+                myProperty[i].SetValue(TName, (double)list[i]);
+                strRow[i] = list[i].ToString();
+            }
+            _DYAttri[TName] = _YAttri;
+            bs.DataSource = _DYAttri.Values;
+            xmlOperate.SetXMLRowValue(TName, strRow);
         }
     }
 }

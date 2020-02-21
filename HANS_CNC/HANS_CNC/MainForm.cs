@@ -21,13 +21,14 @@ namespace HANS_CNC
         List<UserControl> userControls;
         List<Image> imgFV;
         string[] strFV;
-        public TableContainer tableContainer = new TableContainer();
+       TableContainer tableContainer;
         ITodoListController controller;
         public MainForm()
         {
             InitializeComponent();
             _mainForm = this;
             controller = new TodoController();
+            tableContainer = TableContainer.GetInstance();
         }
 
         private void MainForm_Load(object sender, EventArgs e)

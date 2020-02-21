@@ -9,11 +9,26 @@ namespace HANS_CNC.LayerClass
 {
     public class TableContainer
     {
+        private volatile static TableContainer uniqueInstance;
+        private static object syncRoot = new Object();
         public List<TableModel> LTableModel;
-        
-        public TableContainer()
+        private TableContainer()
         { 
             LTableModel = new List<TableModel>();
+        }
+        public static TableContainer GetInstance()
+        {
+            if (uniqueInstance == null)
+            {
+                lock (syncRoot)
+                {
+                    if (uniqueInstance == null)
+                    {
+                        uniqueInstance = new TableContainer();
+                    }
+                }
+            }
+            return uniqueInstance;
         }
         public void AddTable(TableModel s)
         {
