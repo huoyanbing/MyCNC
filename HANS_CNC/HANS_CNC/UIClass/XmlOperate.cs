@@ -139,7 +139,6 @@ namespace HANS_CNC.UIClass
             }
             myXmlDoc.Save(_filePath);
         }
-
         public void SetXMLValue(string TableName, string ColName,string strVal)
         {
             XmlNode tableNode = myXmlDoc.DocumentElement.SelectSingleNode(TableName);
