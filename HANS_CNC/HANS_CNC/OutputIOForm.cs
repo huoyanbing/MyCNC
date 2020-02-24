@@ -61,32 +61,7 @@ namespace HANS_CNC
 
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
-            try
-            {
-                SolidBrush backgroundBlack;
-                if (e.Index == tabControlOutput.SelectedIndex) //当前Tab页的样式
-                {
-                    backgroundBlack = new SolidBrush(Color.DodgerBlue);//Tab整体背景颜色
-                }
-                else
-                {
-                    backgroundBlack = new SolidBrush(Color.FromArgb(64, 128, 128));//Tab整体背景颜色
-                }
-                Rectangle myTabRect = tabControlOutput.GetTabRect(e.Index);
-                e.Graphics.FillRectangle(backgroundBlack, myTabRect);
-                StringFormat sftTab = new StringFormat();
-                sftTab.LineAlignment = StringAlignment.Center;
-                sftTab.Alignment = StringAlignment.Center;
-                RectangleF recTab = (RectangleF)tabControlOutput.GetTabRect(e.Index);//绘制区域
-                Font font = new System.Drawing.Font("微软雅黑", 11F);
-                SolidBrush bruFont = new SolidBrush(Color.White);// 标签字体颜色
-                e.Graphics.DrawString(tabControlOutput.TabPages[e.Index].Text, font, bruFont, recTab, sftTab);
-                e.Graphics.Dispose();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            ControlTool.TabControlDrawItem(tabControlOutput, e);
         }
 
         private void LabelRename()
