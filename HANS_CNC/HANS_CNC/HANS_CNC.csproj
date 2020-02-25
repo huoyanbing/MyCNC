@@ -114,6 +114,7 @@
     <Compile Include="LayerClass\ConfigurationClass.cs" />
     <Compile Include="LayerClass\FormTableModel.cs" />
     <Compile Include="LayerClass\FromTable.cs" />
+    <Compile Include="LayerClass\ITableViewUI.cs" />
     <Compile Include="LayerClass\ITodoListController.cs" />
     <Compile Include="LayerClass\ITodoListModel.cs" />
     <Compile Include="LayerClass\TableContainer.cs" />

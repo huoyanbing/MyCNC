@@ -19,6 +19,7 @@ namespace HANS_CNC
         bool blone;
         ITodoListController controller ;
         TableContainer tableContainer;
+        ITableViewUI tableUI;
 
         //public static event EventHandler<UserEventArgs> ZPositionChanged;
         public PositionsForm()
@@ -26,6 +27,7 @@ namespace HANS_CNC
             InitializeComponent();
             controller = new TodoController();
             tableContainer = TableContainer.GetInstance();
+            tableUI = TableContainer.GetInstance();
         }
         private void PositionsForm_Load(object sender, EventArgs e)
         {
@@ -78,11 +80,13 @@ namespace HANS_CNC
             //tableContainer.LTableModel[1].UpdateTable("ZModifier", a1);
             //tableContainer.LTableModel[2].UpdateTable("AbCoord", b1);
             //tableContainer.LTableModel[3].UpdateTable("AbCoord", b2);
-            object[] a = { 1528, 258, 100, -1, 536 };
-            tableContainer.LTableModel[0].UpdateTable("ZPos", a);
-            LoadDataList();
-            dataGridViewZ.Rows[1].Cells[1].Style.BackColor = Color.Red;
-            dataGridViewZ.Rows[1].Cells[1].Style.SelectionBackColor= Color.Red;
+            object[] a = { 582, 325 ,90};
+            tableUI.UpdataParams("AbCoord", a);
+            object[] b = tableUI.GetValue("AbCoord");
+            //tableContainer.LTableModel[0].UpdateTable("ZPos", a);
+            //LoadDataList();
+            //dataGridViewZ.Rows[1].Cells[1].Style.BackColor = Color.Red;
+            //dataGridViewZ.Rows[1].Cells[1].Style.SelectionBackColor= Color.Red;
         }
 
         private void LoadDataGrid()

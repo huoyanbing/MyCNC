@@ -13,6 +13,7 @@ namespace HANS_CNC.LayerClass
         protected Dictionary<string, SixZAttri> _DSixZAttri;
         protected Dictionary<string, TwoXAttri> _DTwoXAttri;
         protected Dictionary<string, YAttri> _DYAttri;
+        protected List<SixZAttri> _LSixZAttri;
         protected string[] SixZ =  { "Z1", "Z2", "Z3", "Z4", "Z5", "Z6" };
         protected string[] TowX = { "X1", "X2" };
         protected string[] Y = {"Y"};

@@ -14,14 +14,18 @@ namespace HANS_CNC.LayerClass
         public ZPostionModel()
         {
             _DSixZAttri = new Dictionary<string, SixZAttri>();
+            _LSixZAttri = new List<SixZAttri>();
             xmlOperate = new XmlOperate(ConfigurationClass.ReadSetting("xmlzPotion"));
         }
         public override void  TableInitial()
         {
              bs = new BindingSource();
             _DSixZAttri.Clear();
-            SixZAttri CurZPos = new SixZAttri() { Z1=100};
-            SixZAttri CurFootPos = new SixZAttri();
+            _LSixZAttri.Clear();
+            for(int i=0;i< Zpos.Length;i++)
+            {
+                _LSixZAttri.Add(new SixZAttri());
+            }
             string[,] strTable = xmlOperate.GenerateXMLFile(Zpos, SixZ);
             if(strTable!=null)
             {
@@ -29,13 +33,16 @@ namespace HANS_CNC.LayerClass
                 PropertyInfo[] myProperty = myType.GetProperties();
                 for(int i=0;i< myProperty.Length;i++)
                 {
-                    myProperty[i].SetValue(CurZPos, Convert.ToDouble( strTable[0, i]));
-                    myProperty[i].SetValue(CurFootPos, Convert.ToDouble(strTable[1, i]));
+                    for(int j=0;j< _LSixZAttri.Count;j++ )
+                    {
+                        myProperty[i].SetValue(_LSixZAttri[j], Convert.ToDouble(strTable[j, i]));
+                    }
                 }
-            }         
-            _DSixZAttri.Add(Zpos[0], CurZPos);
-            _DSixZAttri.Add(Zpos[1], CurFootPos);
-            
+            }
+            for (int i = 0; i < Zpos.Length; i++)
+            {
+                _DSixZAttri.Add(Zpos[i], _LSixZAttri[i]);
+            }            
             bs.DataSource = _DSixZAttri.Values;
         }
         public override void UpdateTable(string TName, FromTableClass TClass)
@@ -112,14 +119,18 @@ namespace HANS_CNC.LayerClass
         public ZCompensation()
         {
             _DSixZAttri = new Dictionary<string, SixZAttri>();
+            _LSixZAttri = new List<SixZAttri>();
             xmlOperate = new XmlOperate(ConfigurationClass.ReadSetting("xmlzComp"));
         }
         public override void TableInitial()
         {
-             bs = new BindingSource();
+            bs = new BindingSource();
             _DSixZAttri.Clear();
-            SixZAttri ZModifier = new SixZAttri();
-            SixZAttri Qoffset = new SixZAttri();
+            _LSixZAttri.Clear();
+            for (int i = 0; i < ZComp.Length; i++)
+            {
+                _LSixZAttri.Add(new SixZAttri());
+            }
             string[,] strTable = xmlOperate.GenerateXMLFile(ZComp, SixZ);
             if (strTable != null)
             {
@@ -127,12 +138,16 @@ namespace HANS_CNC.LayerClass
                 PropertyInfo[] myProperty = myType.GetProperties();
                 for (int i = 0; i < myProperty.Length; i++)
                 {
-                    myProperty[i].SetValue(ZModifier, Convert.ToDouble(strTable[0, i]));
-                    myProperty[i].SetValue(Qoffset, Convert.ToDouble(strTable[1, i]));
+                    for (int j = 0; j < _LSixZAttri.Count; j++)
+                    {
+                        myProperty[i].SetValue(_LSixZAttri[j], Convert.ToDouble(strTable[j, i]));
+                    }
                 }
             }
-            _DSixZAttri.Add(ZComp[0], ZModifier);
-            _DSixZAttri.Add(ZComp[1], Qoffset);
+            for (int i = 0; i < ZComp.Length; i++)
+            {
+                _DSixZAttri.Add(ZComp[i], _LSixZAttri[i]);
+            }
             bs.DataSource = _DSixZAttri.Values;
         }
 
@@ -183,7 +198,7 @@ namespace HANS_CNC.LayerClass
             string[] strRow = new string[myProperty.Length];
             for (int i = 0; i < myProperty.Length; i++)
             {
-                myProperty[i].SetValue(TName, (double)list[i]);
+                myProperty[i].SetValue(TName, list[i]);
                 strRow[i] = list[i].ToString();
             }
             _DSixZAttri[TName] = _sixZAttri;
@@ -272,11 +287,17 @@ namespace HANS_CNC.LayerClass
             Type myType = typeof(TwoXAttri);
             PropertyInfo[] myProperty = myType.GetProperties();
             string[] strRow = new string[myProperty.Length];
+            for (int i = 0; i < list.Length; i++)
+            {
+                if (!list[i].Equals(-1))
+                {
+                    myProperty[i].SetValue(_twoZAttri, list[i]);
+                }
+            }
             for (int i = 0; i < myProperty.Length; i++)
             {
-                myProperty[i].SetValue(TName, (double)list[i]);
-                strRow[i] = list[i].ToString();
-            }
+                strRow[i] = myProperty[i].GetValue(_twoZAttri).ToString();
+            }          
             _DTwoXAttri[TName] = _twoZAttri;
             bs.DataSource = _DTwoXAttri.Values;
             xmlOperate.SetXMLRowValue(TName, strRow);
@@ -364,10 +385,16 @@ namespace HANS_CNC.LayerClass
             Type myType = typeof(YAttri);
             PropertyInfo[] myProperty = myType.GetProperties();
             string[] strRow = new string[myProperty.Length];
+            for (int i = 0; i < list.Length; i++)
+            {
+                if (!list[i].Equals(-1))
+                {
+                    myProperty[i].SetValue(_YAttri, list[i]);
+                }
+            }
             for (int i = 0; i < myProperty.Length; i++)
             {
-                myProperty[i].SetValue(TName, (double)list[i]);
-                strRow[i] = list[i].ToString();
+                strRow[i] = myProperty[i].GetValue(_YAttri).ToString();
             }
             _DYAttri[TName] = _YAttri;
             bs.DataSource = _DYAttri.Values;
