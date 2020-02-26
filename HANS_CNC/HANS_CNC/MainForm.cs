@@ -187,6 +187,7 @@ namespace HANS_CNC
             userControls.Add(new AxisCheckForm());
             userControls.Add(new FileManageForm());
             userControls.Add(new UserFlagForm());
+            tableContainer.MyControls.AddRange(userControls);
         }
         private void MyStatusPanel()
         {

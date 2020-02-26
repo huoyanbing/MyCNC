@@ -193,6 +193,7 @@ namespace HANS_CNC.LayerClass
         {
             bs = new BindingSource();
             SixZAttri _sixZAttri = new SixZAttri();
+            _sixZAttri = _DSixZAttri[TName];
             Type myType = typeof(SixZAttri);
             PropertyInfo[] myProperty = myType.GetProperties();
             string[] strRow = new string[myProperty.Length];
@@ -284,6 +285,7 @@ namespace HANS_CNC.LayerClass
         {
             bs = new BindingSource();
             TwoXAttri _twoZAttri = new TwoXAttri();
+            _twoZAttri = _DTwoXAttri[TName];
             Type myType = typeof(TwoXAttri);
             PropertyInfo[] myProperty = myType.GetProperties();
             string[] strRow = new string[myProperty.Length];
@@ -382,6 +384,7 @@ namespace HANS_CNC.LayerClass
         {
             bs = new BindingSource();
             YAttri _YAttri = new YAttri();
+            _YAttri = _DYAttri[TName];
             Type myType = typeof(YAttri);
             PropertyInfo[] myProperty = myType.GetProperties();
             string[] strRow = new string[myProperty.Length];

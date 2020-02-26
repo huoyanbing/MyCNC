@@ -10,6 +10,7 @@ namespace HANS_CNC.LayerClass
     {
         void UpdataParams(string type, params object[] list);
         object[] GetValue(string type);
+        void InputIO(string type, bool blactive);
 
     }
 }

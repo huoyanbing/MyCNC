@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -10,17 +11,21 @@ namespace HANS_CNC.LayerClass
 {
     public class TableContainer: ITableViewUI
     {
-         string[] str1 = { "ZPos", "FootPos" };
-         string[] str2 = { "ZModifier", "Qoffset" };
-         string[] str3 = { "AbCoord", "DeskCoord", "PCBCoord", "Servocomp" };
+        string[] str1 = { "ZPos", "FootPos" };
+        string[] str2 = { "ZModifier", "Qoffset" };
+        string[] str3 = { "AbCoord", "DeskCoord", "PCBCoord", "Servocomp" };
+        string[] strInput ={"LenZ1", "LenZ2", "LenZ3", "LenZ4", "LenZ5", "LenZ6", "ColletUp", "QICalarm" ,"PRESS",
+                                                            "COOLING","AIR","Fence","PosStop","MachineStop"};
         private volatile static TableContainer uniqueInstance;
         private static object syncRoot = new Object();
         public List<TableModel> LTableModel;
         List<List<string>> LTableName;
+        public List<UserControl> MyControls;
         private TableContainer()
         { 
             LTableModel = new List<TableModel>();
             LTableName = new List<List<string>>();
+            MyControls = new List<UserControl>();
             ArrangeTableName();
         }
         public static TableContainer GetInstance()
@@ -42,7 +47,6 @@ namespace HANS_CNC.LayerClass
             LTableModel.Add(s);
             s.TableInitial();
         }
-
         private void ArrangeTableName()
         {
             LTableName.Add(new List<string>(str1));
@@ -70,7 +74,6 @@ namespace HANS_CNC.LayerClass
             }
             return index;
         }
-
         public void UpdataParams(string type, params object[] list)
         {
             int [] index = GetNameId(type);
@@ -87,9 +90,12 @@ namespace HANS_CNC.LayerClass
                     LTableModel[index[0]].UpdateTable(type, _list1);
                     LTableModel[index[1]].UpdateTable(type, _list2);
                 }
+                else 
+                {
+                    LTableModel[index[0]].UpdateTable(type, list);
+                }
             }
         }
-
         public object[] GetValue(string type)
         {
             int[] index = GetNameId(type);
@@ -140,6 +146,22 @@ namespace HANS_CNC.LayerClass
                 obj = Lobj.ToArray();
             }
             return obj;
+        }
+
+        public void InputIO(string type, bool blactive)
+        {
+            int id = (int)FormName.Form_Input;
+            InputIOForm inputIO = MyControls[id] as InputIOForm;
+            int No = Array.IndexOf(strInput, type);
+            if (blactive)
+            {     
+                inputIO.Lplabel[No].BackColor = Color.Yellow;
+            }
+            else
+            {
+                inputIO.Lplabel[No].BackColor = Color.Transparent;
+            }
+            
         }
     }
 }

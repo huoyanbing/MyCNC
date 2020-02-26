@@ -15,21 +15,27 @@ namespace HANS_CNC
     {
         AutoSizeFormClass asc = new AutoSizeFormClass();
         public List<PictureBox> lpBoxs;
+        public List<Label> Lplabel;
         List<GroupBox> lgbs;
         bool blone = true;
         string[] strInput = new string[] {"刀长测量器Z1", "刀长测量器Z2", "刀长测量器Z3", "刀长测量器Z4", "刀长测量器Z5", "刀长测量器Z6", "夹头上升", "QIC limit alarm" ,"PRESS PCB SENSOR",
-                                                            "COOLING UNIT","SPINDLE AIR","SPIN THERMAL","光电栅栏","位置停止","机器停止"};
+                                                            "COOLING UNIT","SPINDLE AIR","光电栅栏","位置停止","机器停止"};
         public InputIOForm()
         {
             InitializeComponent();
             lpBoxs = new List<PictureBox>();
+            Lplabel = new List<Label>();
             LabelRename();
-           
+            MyGroupBox();
+            for (int i = 0; i < strInput.Length; i++)
+            {
+                inputControl(i + 1, strInput[i]);
+            }
         }
 
         private void InputIOForm_Load(object sender, EventArgs e)
         {
-            MyGroupBox();
+            //MyGroupBox();
             asc.controllInitializeSize(this);
             tabControlInput.DrawMode = TabDrawMode.OwnerDrawFixed;
             tabControlInput.SizeMode = TabSizeMode.Fixed;
@@ -45,49 +51,22 @@ namespace HANS_CNC
             lgbs.Add(groupBox5);
             lgbs.Add(groupBox6);
         }
-
         private void InputIOForm_SizeChanged(object sender, EventArgs e)
         {         
             asc.controlAutoSize(this, 1);
             if(blone)
             {
-                for(int i=0;i<strInput.Length;i++)
-                {
-                    inputControl(i+1, strInput[i]);
-                }
+                //for(int i=0;i<strInput.Length;i++)
+                //{
+                //    inputControl(i+1, strInput[i]);
+                //}
                
                 blone = false;
             }
         }
-
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
-            try
-            {
-                SolidBrush backgroundBlack;
-                if (e.Index == tabControlInput.SelectedIndex) //当前Tab页的样式
-                {
-                    backgroundBlack = new SolidBrush(Color.DodgerBlue);//Tab整体背景颜色
-                }
-                else
-                {
-                    backgroundBlack = new SolidBrush(Color.FromArgb(64, 128, 128));//Tab整体背景颜色
-                }
-                Rectangle myTabRect = tabControlInput.GetTabRect(e.Index);
-                e.Graphics.FillRectangle(backgroundBlack, myTabRect);
-                StringFormat sftTab = new StringFormat();
-                sftTab.LineAlignment = StringAlignment.Center;
-                sftTab.Alignment = StringAlignment.Center;
-                RectangleF recTab = (RectangleF)tabControlInput.GetTabRect(e.Index);//绘制区域
-                Font font = new System.Drawing.Font("微软雅黑", 11F);
-                SolidBrush bruFont = new SolidBrush(Color.White);// 标签字体颜色
-                e.Graphics.DrawString(tabControlInput.TabPages[e.Index].Text, font, bruFont, recTab, sftTab);
-                e.Graphics.Dispose();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            ControlTool.TabControlDrawItem(tabControlInput, e);
         }
         private  void LabelRename()
         {
@@ -138,7 +117,7 @@ namespace HANS_CNC
             {
                 PictureBox pBox = new PictureBox();
                 pBox.Name = name + nNum[i].ToString();
-                pBox.Size = new Size(20, 20);
+                pBox.Size = new Size(12, 15);
                 pBox.BackColor = Color.Silver;
                 pBox.BackgroundImageLayout = ImageLayout.Zoom;
                 lpBoxs.Add(pBox);               
@@ -150,10 +129,11 @@ namespace HANS_CNC
             label.Name = Lname + nindex.ToString();
             label.Font = new Font("微软雅黑", 12F);
             label.Text = Ltext;
+            Lplabel.Add(label);
             Label labelHead = FindLabel(nindex);
-            pBox1.Location = new Point(labelHead.Location.X + 40, labelHead.Location.Y);
-            pBox2.Location = new Point(labelHead.Location.X + 70, labelHead.Location.Y);
-            label.Location = new Point(labelHead.Location.X + 100, labelHead.Location.Y);
+            pBox1.Location = new Point(labelHead.Location.X + 20, labelHead.Location.Y);
+            pBox2.Location = new Point(labelHead.Location.X + 40, labelHead.Location.Y);
+            label.Location = new Point(labelHead.Location.X + 60, labelHead.Location.Y);
             int ngb = nindex / 17;
             GroupBox groupBox = lgbs[ngb] as GroupBox;
             groupBox.Controls.Add(pBox1);

@@ -80,9 +80,10 @@ namespace HANS_CNC
             //tableContainer.LTableModel[1].UpdateTable("ZModifier", a1);
             //tableContainer.LTableModel[2].UpdateTable("AbCoord", b1);
             //tableContainer.LTableModel[3].UpdateTable("AbCoord", b2);
-            object[] a = { 582, 325 ,90};
-            tableUI.UpdataParams("AbCoord", a);
-            object[] b = tableUI.GetValue("AbCoord");
+            //object[] a = { 25};
+            //tableUI.UpdataParams("AbCoord", a);
+            //object[] b = tableUI.GetValue("AbCoord");
+            //tableUI.InputIO("LenZ1", true);
             //tableContainer.LTableModel[0].UpdateTable("ZPos", a);
             //LoadDataList();
             //dataGridViewZ.Rows[1].Cells[1].Style.BackColor = Color.Red;

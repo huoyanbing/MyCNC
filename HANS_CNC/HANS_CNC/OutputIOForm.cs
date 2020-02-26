@@ -25,11 +25,16 @@ namespace HANS_CNC
             InitializeComponent();
             lpBoxs = new List<PictureBox>();
             LabelRename();
+            MyGroupBox();
+            for (int i = 0; i < strOutput.Length; i++)
+            {
+                OutputControl(i + 1, strOutput[i]);
+            }
         }
       
         private void OutputIOForm_Load(object sender, EventArgs e)
         {
-            MyGroupBox();
+            
             asc.controllInitializeSize(this);
             tabControlOutput.DrawMode = TabDrawMode.OwnerDrawFixed;
             tabControlOutput.SizeMode = TabSizeMode.Fixed;
@@ -48,15 +53,6 @@ namespace HANS_CNC
         private void OutputIOForm_SizeChanged(object sender, EventArgs e)
         {
             asc.controlAutoSize(this, 1);
-            if (blone)
-            {
-                for (int i = 0; i < strOutput.Length; i++)
-                {
-                    OutputControl(i + 1, strOutput[i]);
-                }
-
-                blone = false;
-            }
         }
 
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
@@ -109,7 +105,7 @@ namespace HANS_CNC
            
             PictureBox pBox = new PictureBox();
             pBox.Name = name + nindex.ToString();
-            pBox.Size = new Size(20, 20);
+            pBox.Size = new Size(12, 15);
             pBox.BackColor = Color.Silver;
             pBox.BackgroundImageLayout = ImageLayout.Zoom;
             lpBoxs.Add(pBox);
@@ -118,13 +114,24 @@ namespace HANS_CNC
             label.Name = Lname + nindex.ToString();
             label.Font = new Font("微软雅黑", 12F);
             label.Text = Ltext;
+            label.Click += Label_Click;
             Label labelHead = FindLabel(nindex);
-            lpBoxs.Last().Location = new Point(labelHead.Location.X + 40, labelHead.Location.Y);
-            label.Location = new Point(labelHead.Location.X + 70, labelHead.Location.Y);
+            lpBoxs.Last().Location = new Point(labelHead.Location.X + 25, labelHead.Location.Y);
+            label.Location = new Point(labelHead.Location.X + 45, labelHead.Location.Y);
             int ngb = nindex / 17;
             GroupBox groupBox = lgbs[ngb] as GroupBox;
             groupBox.Controls.Add(lpBoxs.Last());
             groupBox.Controls.Add(label);
+        }
+
+        private void Label_Click(object sender, EventArgs e)
+        {
+            Label label = sender as Label;
+            string a = label.Name;
+            if(label.BackColor==Color.Transparent)
+                label.BackColor = Color.Yellow;
+            else
+                label.BackColor = Color.Transparent;
         }
     }
 }
