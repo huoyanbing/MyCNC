@@ -21,6 +21,9 @@ namespace HANS_CNC.LayerClass
         public List<TableModel> LTableModel;
         List<List<string>> LTableName;
         public List<UserControl> MyControls;
+
+        public  event EventHandler<UserEventArgs> OutPutChanged;
+
         private TableContainer()
         { 
             LTableModel = new List<TableModel>();
@@ -95,6 +98,9 @@ namespace HANS_CNC.LayerClass
                     LTableModel[index[0]].UpdateTable(type, list);
                 }
             }
+            int id = (int)FormName.Form_Positions;
+            PositionsForm inputIO = MyControls[id] as PositionsForm;
+            inputIO.LoadDataList();
         }
         public object[] GetValue(string type)
         {
@@ -147,7 +153,6 @@ namespace HANS_CNC.LayerClass
             }
             return obj;
         }
-
         public void InputIO(string type, bool blactive)
         {
             int id = (int)FormName.Form_Input;
@@ -163,5 +168,14 @@ namespace HANS_CNC.LayerClass
             }
             
         }
+        public virtual void OnOutIOChanged(UserEventArgs e)
+        {
+            EventHandler<UserEventArgs> handler = OutPutChanged;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
     }
 }

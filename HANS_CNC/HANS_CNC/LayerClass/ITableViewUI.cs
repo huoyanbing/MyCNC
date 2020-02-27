@@ -12,5 +12,6 @@ namespace HANS_CNC.LayerClass
         object[] GetValue(string type);
         void InputIO(string type, bool blactive);
 
+        event EventHandler<UserEventArgs> OutPutChanged;
     }
 }

@@ -28,6 +28,7 @@ namespace HANS_CNC
             controller = new TodoController();
             tableContainer = TableContainer.GetInstance();
             tableUI = TableContainer.GetInstance();
+            tableUI.OutPutChanged += TableUI_OutPutChanged;
         }
         private void PositionsForm_Load(object sender, EventArgs e)
         {
@@ -88,6 +89,14 @@ namespace HANS_CNC
             //LoadDataList();
             //dataGridViewZ.Rows[1].Cells[1].Style.BackColor = Color.Red;
             //dataGridViewZ.Rows[1].Cells[1].Style.SelectionBackColor= Color.Red;
+            
+        }
+
+        private void TableUI_OutPutChanged(object sender, UserEventArgs e)
+        {
+            KeyValuePair<OutIOName, bool> a=e.outio;
+            int n1 = (int)a.Key;
+            bool bl = a.Value;
         }
 
         private void LoadDataGrid()
@@ -133,7 +142,7 @@ namespace HANS_CNC
             ControlTool.DataGridViewTitle(dataGridViewY, XYpos);
             tabControlPos.SelectedIndex = 0;
         }
-        private void LoadDataList()
+        public void LoadDataList()
         {
             dataGridViewZ.DataSource = tableContainer.LTableModel[0].BS;
             dataGridViewZSet.DataSource = tableContainer.LTableModel[1].BS;

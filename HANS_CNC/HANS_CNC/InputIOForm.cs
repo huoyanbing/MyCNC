@@ -35,7 +35,6 @@ namespace HANS_CNC
 
         private void InputIOForm_Load(object sender, EventArgs e)
         {
-            //MyGroupBox();
             asc.controllInitializeSize(this);
             tabControlInput.DrawMode = TabDrawMode.OwnerDrawFixed;
             tabControlInput.SizeMode = TabSizeMode.Fixed;
@@ -53,16 +52,7 @@ namespace HANS_CNC
         }
         private void InputIOForm_SizeChanged(object sender, EventArgs e)
         {         
-            asc.controlAutoSize(this, 1);
-            if(blone)
-            {
-                //for(int i=0;i<strInput.Length;i++)
-                //{
-                //    inputControl(i+1, strInput[i]);
-                //}
-               
-                blone = false;
-            }
+            asc.controlAutoSize(this, 1);         
         }
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {

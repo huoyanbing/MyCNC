@@ -25,6 +25,22 @@ namespace HANS_CNC
         Form_UserFlag,
     }
 
+    public enum OutIOName
+    {
+        LaserZ1 = 1,
+        LaserZ2 ,
+        LaserZ3 ,
+        LaserZ4 ,
+        LaserZ5 ,
+        LaserZ6 ,
+        M36 ,
+        Collet,
+        CNCCalarm,
+        CNCStop,
+        CNCRun,
+        Beeper,
+    }
+
     public enum TableName:int
     {
         Table_ZPosition,
@@ -36,8 +52,9 @@ namespace HANS_CNC
     {
         public int nFV { get; set; }
         public string Ex2Path { get; set; }
+        public KeyValuePair<OutIOName,bool> outio ;
 
-    }
+}
 
     public class ConfigData
     {

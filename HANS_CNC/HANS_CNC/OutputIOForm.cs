@@ -8,21 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HANS_CNC.UIClass;
+using HANS_CNC.LayerClass;
 
 namespace HANS_CNC
 {
     public partial class OutputIOForm : UserControl
     {
         AutoSizeFormClass asc = new AutoSizeFormClass();
+         //public static event EventHandler<UserEventArgs> OutPutChanged;
+        TableContainer tableContainer;
         public List<PictureBox> lpBoxs;
         List<GroupBox> lgbs;
-        bool blone = true;
         string[] strOutput = new string[] {"镭射选择Z1", "镭射选择Z2", "镭射选择Z3", "镭射选择Z4", "镭射选择Z5", "镭射选择Z6", "M36", "打开主轴夹头" ,"机器故障报警",
-                                                            "机器停止","机器运行中","活塞向上","GRIPPER CLOSE","PRESS FOOT","QIC CLOSE","PRESS PCB","AIR","CNC RPM到达","CNC RPM 0",
+                                                            "机器停止","机器运行中","蜂鸣器报警","GRIPPER CLOSE","PRESS FOOT","QIC CLOSE","PRESS PCB","AIR","CNC RPM到达","CNC RPM 0",
                                                               "Spindle Air","AIR CHECK TOOL","CLAMPING FOR PRESSPCB"};
         public OutputIOForm()
         {           
             InitializeComponent();
+            tableContainer = TableContainer.GetInstance();
             lpBoxs = new List<PictureBox>();
             LabelRename();
             MyGroupBox();
@@ -123,15 +126,23 @@ namespace HANS_CNC
             groupBox.Controls.Add(lpBoxs.Last());
             groupBox.Controls.Add(label);
         }
-
         private void Label_Click(object sender, EventArgs e)
         {
             Label label = sender as Label;
-            string a = label.Name;
-            if(label.BackColor==Color.Transparent)
+            int index = StringTool.ExtractNum(label.Name);
+            UserEventArgs userEventArgs = new UserEventArgs();
+            if (label.BackColor==Color.Transparent)
+            {
                 label.BackColor = Color.Yellow;
+                userEventArgs.outio = new KeyValuePair<OutIOName, bool>((OutIOName)index,true);
+            }  
             else
+            {
                 label.BackColor = Color.Transparent;
+                userEventArgs.outio = new KeyValuePair<OutIOName, bool>((OutIOName)index, false);
+            }
+            tableContainer.OnOutIOChanged(userEventArgs);
         }
+       
     }
 }
