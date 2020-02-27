@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using HANS_CNC.LayerClass;
 using HANS_CNC.UIClass;
-using HANS_CNC.LayerClass;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace HANS_CNC
 {
@@ -17,13 +11,17 @@ namespace HANS_CNC
         AutoSizeFormClass asc = new AutoSizeFormClass();
         string[] Zpos,ZSet,XYpos;
         bool blone;
+        object strCell;
         ITodoListController controller ;
-
+        TableContainer tableContainer;
+        ITableViewUI tableUI;
         //public static event EventHandler<UserEventArgs> ZPositionChanged;
         public PositionsForm()
         {
             InitializeComponent();
             controller = new TodoController();
+            tableContainer = TableContainer.GetInstance();
+            tableUI = TableContainer.GetInstance();
         }
         private void PositionsForm_Load(object sender, EventArgs e)
         {
@@ -40,32 +38,7 @@ namespace HANS_CNC
 
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
-            try
-            {
-                SolidBrush backgroundBlack;
-                if (e.Index == tabControlPos.SelectedIndex) //当前Tab页的样式
-                {
-                    backgroundBlack = new SolidBrush(Color.DodgerBlue);//Tab整体背景颜色
-                }
-                else
-                {
-                    backgroundBlack = new SolidBrush(Color.FromArgb(64, 128, 128));//Tab整体背景颜色
-                }
-                Rectangle myTabRect = tabControlPos.GetTabRect(e.Index);
-                e.Graphics.FillRectangle(backgroundBlack, myTabRect);
-                StringFormat sftTab = new StringFormat();
-                sftTab.LineAlignment = StringAlignment.Center;
-                sftTab.Alignment = StringAlignment.Center;
-                RectangleF recTab = (RectangleF)tabControlPos.GetTabRect(e.Index);//绘制区域
-                 Font font = new System.Drawing.Font("微软雅黑", 11F);
-                SolidBrush bruFont = new SolidBrush(Color.White);// 标签字体颜色
-                e.Graphics.DrawString(tabControlPos.TabPages[e.Index].Text, font, bruFont, recTab, sftTab);    
-                e.Graphics.Dispose();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            ControlTool.TabControlDrawItem(tabControlPos, e);
         }
 
         private void PositionsForm_SizeChanged(object sender, EventArgs e)
@@ -90,7 +63,12 @@ namespace HANS_CNC
 
         private void button1_Click(object sender, EventArgs e)
         {
-            controller.UPDATEListItem();
+            //controller.UPDATEListItem();
+            object[] a = { 6.21, 256, -1, 58, 25, 326.21 };
+            tableUI.UpdataParams("ZPos", a);
+            object[] b = tableUI.GetValue("ZPos");
+            //tableContainer.LTableModel[0].UpdateTable("ZPos", a);
+            LoadDataList();
         }
 
         private void LoadDataGrid()
@@ -108,26 +86,81 @@ namespace HANS_CNC
         {
             controller.AddTodo();
         }
-
-        private void LoadDataList()
+        private void LoadDataListTab()
         {
-            BindingSource bs1, bs2, bs3, bs4;
-            bs1 = new BindingSource();
-            bs2 = new BindingSource();
-            bs3 = new BindingSource();
-            bs4 = new BindingSource();
-            bs1.DataSource = MainForm._mainForm.tableContainer.LTableModel[0].DSixZAttri.Values;
-            bs2.DataSource = MainForm._mainForm.tableContainer.LTableModel[1].DSixZAttri.Values;
-            bs3.DataSource = MainForm._mainForm.tableContainer.LTableModel[2].DTwoXAttri.Values;
-            bs4.DataSource = MainForm._mainForm.tableContainer.LTableModel[3].DYAttri.Values;
-            dataGridViewZ.DataSource = bs1;
-            dataGridViewZSet.DataSource = bs2;
-            dataGridViewX.DataSource = bs3;
-            dataGridViewY.DataSource = bs4;
+            dataGridViewZ.DataSource = tableContainer.LTableModel[0].BS;
+            dataGridViewZSet.DataSource = tableContainer.LTableModel[1].BS;
+            dataGridViewX.DataSource = tableContainer.LTableModel[2].BS;
+            dataGridViewY.DataSource = tableContainer.LTableModel[3].BS;
             ControlTool.DataGridViewTitle(dataGridViewZ, Zpos);
-            //ControlTool.DataGridViewTitle(dataGridViewZSet, ZSet);
-            //ControlTool.DataGridViewTitle(dataGridViewX, XYpos);
-            // ControlTool.DataGridViewTitle(dataGridViewY, XYpos);
+            tabControlPos.SelectedIndex = 1;
+            ControlTool.DataGridViewTitle(dataGridViewZSet, ZSet);
+            tabControlPos.SelectedIndex = 2;
+            ControlTool.DataGridViewTitle(dataGridViewX, XYpos);
+            ControlTool.DataGridViewTitle(dataGridViewY, XYpos);
+            tabControlPos.SelectedIndex = 0;
+        }
+        public void LoadDataList()
+        {
+            dataGridViewZ.DataSource = tableContainer.LTableModel[0].BS;
+            dataGridViewZSet.DataSource = tableContainer.LTableModel[1].BS;
+            dataGridViewX.DataSource = tableContainer.LTableModel[2].BS;
+            dataGridViewY.DataSource = tableContainer.LTableModel[3].BS;
+            ControlTool.DataGridViewTitle(dataGridViewZ, Zpos);
+            ControlTool.DataGridViewTitle(dataGridViewZSet, ZSet);
+            ControlTool.DataGridViewTitle(dataGridViewX, XYpos);
+            ControlTool.DataGridViewTitle(dataGridViewY, XYpos);
+        }
+        private void UpdateDGVZPos()
+        {
+            dataGridViewZ.DataSource = tableContainer.LTableModel[0].BS;
+            ControlTool.DataGridViewTitle(dataGridViewZ, Zpos);
+        }
+
+        private void dataGridViewZSet_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            strCell = dataGridViewZSet.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+        }
+
+        private void dataGridViewZSet_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (strCell.Equals(dataGridViewZSet.Rows[e.RowIndex].Cells[e.ColumnIndex].Value))
+                return;
+            else
+            {
+                tableContainer.LTableModel[1].LoadTable();
+            }
+        }
+
+        private void tabControlPos_Selected(object sender, TabControlEventArgs e)
+        {
+            switch (e.TabPageIndex)
+            {
+                case 0:
+                    UpdateDGVZPos();
+                    break;
+                case 1:
+                    UpdateDGVZComp();
+                    break;
+                case 2:
+                    UpdateDGVXYPos();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void UpdateDGVZComp()
+        {
+            dataGridViewZSet.DataSource = tableContainer.LTableModel[1].BS;
+            ControlTool.DataGridViewTitle(dataGridViewZSet, ZSet);
+        }
+        private void UpdateDGVXYPos()
+        {
+            dataGridViewX.DataSource = tableContainer.LTableModel[2].BS;
+            dataGridViewY.DataSource = tableContainer.LTableModel[3].BS;
+            ControlTool.DataGridViewTitle(dataGridViewX, XYpos);
+            ControlTool.DataGridViewTitle(dataGridViewY, XYpos);
         }
     }
 }
