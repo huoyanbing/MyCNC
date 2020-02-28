@@ -31,7 +31,6 @@ namespace HANS_CNC
                 inputControl(i + 1, strInput[i]);
             }
         }
-
         private void InputIOForm_Load(object sender, EventArgs e)
         {
             asc.controllInitializeSize(this);
