@@ -17,7 +17,6 @@ namespace HANS_CNC
         public List<PictureBox> lpBoxs;
         public List<Label> Lplabel;
         List<GroupBox> lgbs;
-        bool blone = true;
         string[] strInput = new string[] {"刀长测量器Z1", "刀长测量器Z2", "刀长测量器Z3", "刀长测量器Z4", "刀长测量器Z5", "刀长测量器Z6", "夹头上升", "QIC limit alarm" ,"PRESS PCB SENSOR",
                                                             "COOLING UNIT","SPINDLE AIR","光电栅栏","位置停止","机器停止"};
         public InputIOForm()

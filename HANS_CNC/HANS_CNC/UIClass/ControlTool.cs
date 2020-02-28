@@ -81,8 +81,5 @@ namespace HANS_CNC.UIClass
                 throw ex;
             }
         }
-
-
-
     }
 }
